@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^12.5.4",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/overpass": "^5.2.6",
     "astro": "^5.9.1",
