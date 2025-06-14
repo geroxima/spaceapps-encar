@@ -1,5 +1,7 @@
 # Space Apps Encarnación 2025
-![Space Apps Encarnación 2025](https://raw.githubusercontent.com/geroxima/spaceapps-encar/main/public/images/local-logo.webp)
+![Space Apps Encarnación 2025](https://raw.githubusercontent.com/geroxima/spaceapps-encar/refs/heads/master/public/images/local-logo.webp)
+
+
 
 A simple websiite for the NASA Space Apps Challenge Encarnación 2025.
 
