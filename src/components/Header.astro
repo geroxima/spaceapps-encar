@@ -1,0 +1,18 @@
+---
+import Image from "astro/components/Image.astro";
+import localLogo from 'public/images/local-logo.webp'
+---
+<header>
+    <ul id="navigation" class="flex list-none gap-x-2 items-center justify-around bg-deepBlue text-white uppercase font-overpassBold font-bold py-3">
+        <li>
+            <a href="#">
+                <Image src={localLogo} width={100} height={100} alt="Local event logo"/>
+            </a>
+        </li>
+        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#acerca">Acerca De</a></li>
+        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#faq">Preguntas Frecuentes</a></li>
+        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#agenda">Agenda</a></li>
+        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#colaboradores">Colaboradores</a></li>
+        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#voluntarios">Voluntarios</a></li>
+    </ul>
+</header>

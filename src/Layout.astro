@@ -1,0 +1,62 @@
+---
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import '@/styles/global.css'
+---
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#FF476F" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>NASA Space Apps Challenge Encarnación 2025</title>
+    <meta
+      name="description"
+      content="Únete a nosotros en el NASA Space Apps Challenge ENCARNACIÓN 2025 este 4 y 5 de Octubre"
+    />
+    <meta
+      name="keywords"
+      content="NASA, Space Apps, Encarnación, Paraguay, Hackathon, 2025, Ciencia, Tecnología, Innovación"
+    />
+    <meta name="robots" content="index, follow" />
+    <!-- <link rel="canonical" href="https://spaceapps-encar.pages.dev" /> -->
+
+    <!-- OG Meta Tags -->
+    <meta
+      property="og:image"
+      content="https://spaceapps-encar.pages.dev/og.webp"
+    />
+    <meta property="og:image:width" content="1920" />
+    <meta property="og:image:height" content="1080" />
+    <meta
+      property="og:title"
+      content="NASA SPACE APPS CHALLENGE ENCARNACIÓN 2025"
+    />
+    <meta
+      property="og:description"
+      content="NASA Space Apps Challenge en Encarnación, Paraguay. El evento perfecto para que tu talento brille."
+    />
+    <meta property="og:url" content="https://spaceapps-encar.pages.dev" />
+  </head>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>
+
+
+<!-- <script>
+import Lenis from 'lenis'
+
+const lenis = new Lenis({
+  autoRaf: true,
+});
+
+// Listen for the scroll event and log the event data
+lenis.on('scroll', (e) => {
+  console.log(e);
+});
+</script> -->

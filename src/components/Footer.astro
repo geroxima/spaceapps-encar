@@ -1,0 +1,61 @@
+---
+import { Image } from "astro:assets";
+import logo from "public/images/local-logo.webp";
+---
+
+<footer class="bg-black text-white flex px-28 py-36">
+  <aside class="w-1/2 flex-col">
+    <Image
+      src={logo}
+      width={200}
+      height={200}
+      alt="NASA Space Apps Challenge Logo"
+    />
+    <p>2025 NASA Space Apps Challenge | Evento Local: Encarnación</p>
+    <a
+      href="https://spaceappschallenge.org"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hover:underline hover:text-rocketRed transition-all ease-out duration-75"
+      >spaceappschallenge.org</a
+    >
+  </aside>
+
+  <div class="flex justify-around w-full">
+    <div class="flex flex-col gap-y-2">
+      <h3 class="text-white text-lg font-bold mb-10">Contacto</h3>
+      <a
+        href="mailto:info@spaceappsencarnacion.live"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline hover:text-rocketRed transition-all ease-out duration-75"
+        >info@spaceappsencarnacion.live</a
+      >
+      <a
+        href="tel:+595994177042"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline hover:text-rocketRed transition-all ease-out duration-75"
+        >+595 994 177042</a
+      >
+    </div>
+    <div class="flex flex-col gap-y-2">
+      <h3 class="text-white text-lg font-bold mb-10">Redes Sociales</h3>
+
+      <a
+        href="https://instagram.com/nsacencar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline hover:text-rocketRed transition-all ease-out duration-75"
+        >Instagram</a
+      >
+      <a
+        href="https://x.com/nsacencar"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:underline hover:text-rocketRed transition-all ease-out duration-75"
+        >X (Twitter)</a
+      >
+    </div>
+  </div>
+</footer>
