@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import planets from "public/images/planets.webp";
+import bgSvg from "public/waves.svg"; // Adjust path as needed
+---
+
+<section
+id="acerca"
+    class="flex flex-col items-center py-20 relative overflow-hidden bg-[url(/waves.svg)] bg-cover bg-center"
+>
+<h1 class="z-10 text-center w-full mb-8 font-firaSansBlack tracking-wide text-3xl xl:text-6xl ">Acerca del Evento</h1>
+<div class="z-10 flex flex-col md:flex-row w-full max-w-7xl px-8 xl:px-0 gap-8 font-overpass text-gray-600 text-xl">
+    <article class="flex-1">
+        <h2 class="text-deepBlue mb-4 text-4xl">¿Qué es el NASA Space Apps Challenge?</h2>
+        <p class="mb-4">
+            La NASA International Space Apps Challenge es una hackathon internacional
+            de 48 horas donde equipos de programadores, científicos, diseñadores,
+            narradores, creadores y tecnólogos colaboran para desarrollar soluciones a
+            desafíos que enfrentamos en la Tierra y en el espacio.
+        </p>
+        <p class="mb-4">
+            Por primera vez, Encarnación será la sede de este evento global, donde los
+            participantes locales tendrán la oportunidad de conectarse con la
+            comunidad internacional de Space Apps.
+        </p class="mb-4">
+        <p>
+            Los equipos competirán por premios locales y la oportunidad de ser
+            nominados para los premios globales de la NASA Space Apps Challenge.
+            ¡Participa en este evento único y sé parte de la mayor hackathon del
+            mundo!
+        </p>
+    </article>
+    <aside class="w-full md:w-1/3 flex justify-center items-center">
+        <Image src={planets} alt="Planetas" width={500} height={500} class="w-full max-w-xs md:max-w-full h-auto" />
+    </aside>
+</div>
+<div class="absolute  inset-0 w-full h-full bg-indigo-50 bg-opacity-95 z-0"></div>
+</section>

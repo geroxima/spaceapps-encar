@@ -19,7 +19,7 @@ export default {
                 firaSansBlack: ['Fira Sans Black', 'Fira Sans', 'sans-serif'],
                 firaSansBold: ['Fira Sans Bold', 'sans-serif'],
                 overpass:  ['overpass', 'sans-serif'],
-                // overpassBold: ['Overpass Bold', 'sans-serif'],
+                overpassBold: ['Overpass Bold', 'sans-serif'],
                 // overpassRegular: ['Overpass Regular', 'sans-serif'],
             },
         },

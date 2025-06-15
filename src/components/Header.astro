@@ -1,18 +1,125 @@
 ---
 import Image from "astro/components/Image.astro";
 import localLogo from 'public/images/local-logo.webp'
+// You'll need to create these icon components or replace with your own
+// import HamburgerMenu from "@/icons/HamburgerMenu.astro";
+// import Close from "@/icons/Close.astro";
+
+const sections = [
+  { name: "Acerca De", href: "#acerca" },
+  // { name: "Preguntas Frecuentes", href: "#faq" },
+//   { name: "Agenda", href: "#agenda" },
+  // { name: "Colaboradores", href: "#colaboradores" },
+  // { name: "Voluntarios", href: "#voluntarios" },
+];
 ---
-<header>
-    <ul id="navigation" class="flex list-none gap-x-2 items-center justify-around bg-deepBlue text-white uppercase font-overpassBold font-bold py-3">
-        <li>
-            <a href="#">
-                <Image src={localLogo} width={100} height={100} alt="Local event logo"/>
-            </a>
-        </li>
-        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#acerca">Acerca De</a></li>
-        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#faq">Preguntas Frecuentes</a></li>
-        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#agenda">Agenda</a></li>
-        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#colaboradores">Colaboradores</a></li>
-        <li><a class="hover:underline hover:text-rocketRed transition-all ease-out duration-75" href="#voluntarios">Voluntarios</a></li>
-    </ul>
+
+<header class="sticky-header flex items-center justify-between pt-4 px-6">
+  <!-- Logo -->
+  <a href="#" aria-label="Ir a la página de inicio">
+    <Image src={localLogo} width={100} height={100} alt="Local event logo"/>
+  </a>
+
+  <!-- Desktop Navigation -->
+  <div class="hidden xl:flex justify-center gap-8">
+    {
+      sections.map(({ name, href }) => (
+        <a href={href} class="text-white hover:underline hover:text-rocketRed transition-all ease-out duration-75 uppercase font-overpassBold font-bold">
+          {name}
+        </a>
+      ))
+    }
+  </div>
+
+  <!-- Mobile Hamburger Menu -->
+  <button aria-label="Abrir menú" class="p-2 xl:hidden text-white" id="menuButton">
+    <!-- Replace with your hamburger icon or use simple lines -->
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+
+  <!-- Mobile Menu -->
+  <div
+    class="fixed inset-0 z-[888] flex w-screen h-[100dvh] flex-col items-center overflow-x-auto xl:hidden backdrop-blur-3xl bg-deepBlue/95 opacity-0 pointer-events-none transition-opacity duration-300"
+    id="menuMobileContent"
+  >
+    <aside class="flex w-full items-center justify-end px-6 pt-6">
+      <button aria-label="Cerrar menú" id="innerMenuButton" class="p-2 text-white">
+        <!-- Replace with your close icon or use simple X -->
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </aside>
+    <nav class="flex flex-col items-start w-full px-6 gap-5 mt-auto mb-6">
+      {
+        sections.map(({ name, href }, key) => (
+          <a
+            href={href}
+            class="text-white text-4xl font-overpassBold font-bold tracking-tighter hover:underline hover:text-rocketRed transition-all ease-out duration-75 uppercase"
+            id={`navmob-link-${key}`}
+          >
+            {name}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
 </header>
+
+<style>
+  .sticky-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    z-index: 500;
+    backdrop-filter: blur(5px);
+    background-color: rgba(7, 23, 63, 0.9); /* deepBlue with transparency */
+  }
+
+  #menuMobileContent {
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  #menuMobileContent.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+</style>
+
+<script>
+  function toggleMenu() {
+    const menuContent = document.getElementById("menuMobileContent");
+    const menuButton = document.getElementById("menuButton");
+    const innerMenuButton = document.getElementById("innerMenuButton");
+
+    menuContent?.classList.toggle("open");
+    document.body.classList.toggle("overflow-hidden");
+
+    menuButton?.classList.toggle("hidden");
+    innerMenuButton?.classList.toggle("open");
+  }
+
+  window.onload = () => {
+    const menuContent = document.getElementById("menuMobileContent");
+    const menuButton = document.getElementById("menuButton");
+    const innerMenuButton = document.getElementById("innerMenuButton");
+
+    menuButton?.addEventListener("click", toggleMenu);
+    innerMenuButton?.addEventListener("click", toggleMenu);
+
+    const linksMobile = document.querySelectorAll("a[id^='navmob-link-']");
+    linksMobile.forEach((link) =>
+      link.addEventListener("click", () => {
+        toggleMenu();
+      })
+    );
+  };
+</script>

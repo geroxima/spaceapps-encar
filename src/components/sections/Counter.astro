@@ -1,97 +1,42 @@
-<section>
-    <div class="pattern-circle"></div>
-    <div class="countdown">
-        <div class="time-block">
-            <number-flow id="days"></number-flow>
-            <div class="label">días</div>
-        </div>
-        <div class="time-block">
-            <number-flow id="hours"></number-flow>
-            <div class="label">horas</div>
-        </div>
-        <div class="time-block">
-            <number-flow id="minutes"></number-flow>
-            <div class="label">minutos</div>
-        </div>
-        <div class="time-block">
-            <number-flow id="seconds"></number-flow>
-            <div class="label">segundos</div>
+---
+/* No script changes needed */
+---
+
+<section class="relative bottom-0 left-0 h-[40vh] m-0 overflow-hidden bg-gradient-to-br from-[#0042A6] via-[#043186] to-[#07173F] flex items-center justify-center z-[100]">
+    <div class="absolute top-0 left-0 w-full h-full z-[-1] pointer-events-none bg-[repeating-radial-gradient(circle_at_center,_#07173F_0px,_transparent_1px,_transparent_80px,_transparent_10px)]"></div>
+    <div class="flex flex-col items-center w-full">
+        <div class="text-white text-lg sm:text-xl xl:text-2xl font-firaSansBlack mb-4 uppercase tracking-wider">Faltan:</div>
+        <div class="flex justify-center items-center gap-8 font-firaSansBlack xl:text-2xl p-8 text-white text-center
+            px-4 sm:px-8
+            text-base sm:text-lg md:text-xl xl:text-2xl">
+            <div class="flex flex-col items-center">
+                <number-flow id="days" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
+                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">días</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <number-flow id="hours" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
+                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">horas</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <number-flow id="minutes" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
+                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">minutos</div>
+            </div>
+            <div class="flex flex-col items-center">
+                <number-flow id="seconds" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
+                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">segundos</div>
+            </div>
         </div>
     </div>
     <style>
-        section {
-            position: relative;
-            bottom: 0;
-            left: 0;
-            height: 40vh;
-            margin: 0;
-            overflow: hidden;
-            background: linear-gradient(135deg,
-                    #0042A6 0%,
-                    #043186 40%,
-                    #07173F 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-        }
-
-        .pattern-circle {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            background: repeating-radial-gradient(circle at center,
-                    #07173F 0px,
-                    transparent 1px,
-                    transparent 80px,
-                    transparent 10px);
-        }
-
-        .countdown {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            font-family: 'Fira Sans Black', sans-serif;
-            font-size: 2rem;
-            padding: 2rem;
-            color: #fff;
-            text-align: center;
-        }
-
         ::selection {
             background: #eafe07;
             color: black;
         }
-
         ::-moz-selection {
             background: #eafe07;
             color: black;
         }
-
-        .time-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        number-flow {
-            font-size: 3rem;
-        }
-
-        .label {
-            font-size: 1rem;
-            color: #fff;
-            margin-top: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
     </style>
-
     <script type="module">
         import 'https://esm.sh/number-flow'
 
