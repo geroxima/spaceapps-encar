@@ -1,0 +1,79 @@
+[
+  {
+    "category": "Apoyan",
+    "subcategories": [
+      {
+        "tier": "Colaboradores",
+        "color": "#000",
+        "icon": "apoyan",
+        "companies": [
+          {
+            "name": "Cámara paraguaya de la industria del Software",
+            "image": "/images/sponsors/cisoft.png",
+            "url": "https://cisoft.org.py/"
+          },
+          {
+            "name": "Universidad Nacional de Itapúa",
+            "image": "/images/sponsors/uni.png",
+            "url": "https://uni.edu.py"
+          },
+          {
+            "name": "Municipalidad de Encarnación",
+            "image": "/images/sponsors/encar.png",
+            "url": "https://encarnacion.gov.py/"
+          },
+          {
+            "name": "Facultad de Ingeniería de la Universidad Nacional de Itapúa",
+            "image": "/images/sponsors/fiuni.png",
+            "url": "https://fiuni.edu.py"
+          },
+          {
+            "name": "Facultad de Ciencias y Tecnología de la Universidad Nacional de Itapúa",
+            "image": "/images/sponsors/cyt.png",
+            "url": "https://facyt.uni.edu.py"
+          },
+           {
+            "name": "Agencia Espacial del Paraguay",
+            "image": "/images/sponsors/aep.png",
+            "url": "https://aep.gov.py"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Auspician",
+    "subcategories": [
+      {
+        "tier": "Galaxia",
+        "color": "#E43700",
+        "icon": "galaxia",
+        "companies": []
+      },
+      {
+        "tier": "Sistema Solar",
+        "color": "#0960E1",
+        "icon": "sistema-solar",
+        "companies": [
+          {
+            "name": "Integradevs",
+            "image": "/images/sponsors/integradevs.png",
+            "url": "https://integradevs.com"
+          }
+        ]
+      },
+      {
+        "tier": "Planeta",
+        "color": "#2E96F5",
+        "icon": "planeta",
+        "companies": []
+      },
+      {
+        "tier": "Satélite",
+        "color": "#000",
+        "icon": "satelite",
+        "companies": []
+      }
+    ]
+  }
+]

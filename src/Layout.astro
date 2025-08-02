@@ -20,7 +20,7 @@ import '@/styles/global.css'
       content="NASA, Space Apps, Encarnación, Paraguay, Hackathon, 2025, Ciencia, Tecnología, Innovación"
     />
     <meta name="robots" content="index, follow" />
-    <!-- <link rel="canonical" href="https://spaceapps-encar.pages.dev" /> -->
+    <!-- <link rel="canonical" href="https://spaceappsencarnacion.live" /> -->
 
     <!-- OG Meta Tags -->
     <meta
@@ -37,7 +37,59 @@ import '@/styles/global.css'
       property="og:description"
       content="NASA Space Apps Challenge en Encarnación, Paraguay. El evento perfecto para que tu talento brille."
     />
-    <meta property="og:url" content="https://spaceapps-encar.pages.dev" />
+    <meta property="og:url" content="https://spaceappsencarnacion.live" />
+
+    <!-- Schema.org Structured Data for Hackathon -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Hackathon",
+        "name": "NASA Space Apps Challenge Encarnación 2025",
+        "startDate": "2025-10-04",
+        "endDate": "2025-10-05",
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "location": {
+          "@type": "Place",
+          "name": "Encarnación",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Encarnación",
+            "addressRegion": "Itapúa",
+            "addressCountry": "PY"
+          }
+        },
+        "image": "https://spaceappsencarnacion.live/images/og.png",
+        "description": "Únete a nosotros en el NASA Space Apps Challenge ENCARNACIÓN 2025 este 4 y 5 de Octubre. El evento perfecto para que tu talento brille en ciencia, tecnología e innovación.",
+        "about": [
+          "NASA",
+          "Space Apps",
+          "Hackathon",
+          "Ciencia",
+          "Tecnología",
+          "Innovación",
+          "Datos abiertos",
+          "Inteligencia artificial"
+        ],
+        "keywords": "NASA, Space Apps, Encarnación, Paraguay, Hackathon, 2025, Ciencia, Tecnología, Innovación",
+        "organizer": {
+          "@type": "Organization",
+          "name": "NASA Space Apps Challenge Encarnación",
+          "url": "https://spaceappsencarnacion.live"
+        },
+        "sponsor": {
+          "@type": "Organization",
+          "name": "NASA"
+        },
+        "inLanguage": "es",
+        "isAccessibleForFree": true,
+        "audience": {
+          "@type": "Audience",
+          "name": "Desarrolladores, diseñadores, científicos, estudiantes y profesionales interesados en tecnología espacial"
+        },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
+      }
+    </script>
   </head>
   <body>
     <Header />

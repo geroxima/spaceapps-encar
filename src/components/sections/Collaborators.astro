@@ -1,0 +1,111 @@
+---
+import SponsorGalaxia from '@/components/icons/galaxy.astro'
+import SponsorSistemaSolar from '@/components/icons/meteor.astro'
+import SponsorPlaneta from '@/components/icons/planet.astro'
+import SponsorSatelite from '@/components/icons/satellite.astro'
+import SponsorApoyan from '@/components/icons/rocket.astro'
+import sponsorsData from '@/data/collaborators.json'
+import ArrowUpRight from '@/components/icons/arrow-up-right.astro'
+import Container from '@/components/Container.astro'
+import { Image } from 'astro:assets'
+
+const icons: Record<string, any> = {
+  'galaxia': SponsorGalaxia,
+  'sistema-solar': SponsorSistemaSolar,
+  'planeta': SponsorPlaneta,
+  'satelite': SponsorSatelite,
+  'apoyan': SponsorApoyan,
+}
+
+const classes: Record<string, string> = {
+  'galaxia': 'grid-cols-1 md:grid-cols-1',
+  'sistema-solar': 'grid-cols-1 md:grid-cols-2',
+  'planeta': 'grid-cols-2 md:grid-cols-3',
+  'satelite': 'grid-cols-2 md:grid-cols-4',
+  'apoyan': 'grid-cols-2 md:grid-cols-3',
+}
+---
+
+<section class="text-black flex flex-col font-overpassBold scroll-mt-28 bg-[url(fiduciaries.svg)] bg-cover bg-center relative">
+  <Container id="colaboradores">
+    <div class="flex items-center justify-between gap-12 mb-12 flex-col md:flex-row px-section">
+      <div class="flex-1">
+        <p class="text-gray-500 uppercase">Nuestros Colaboradores</p>
+        <h3 class="text-5xl xs:text-6xl font-medium text-balance">
+          Agradecemos la confianza de los que están ayudando a que este evento se lleve a cabo
+        </h3>
+      </div>
+      <div class="flex-shrink-0">
+        <a
+          href="mailto:info@spaceappsencarnacion.live"
+          class="bg-neonYellow text-black font-overpassBold font-bold text-lg px-8 py-4 rounded-lg transition hover:bg-[#C7D806] hover:scale-105 transform duration-200 whitespace-nowrap flex gap-x-2 items-center"
+        >
+          <span>QUIERO SER COLABORADOR</span>
+          <ArrowUpRight/>
+        </a>
+      </div>
+    </div>
+
+    {
+      sponsorsData &&
+        sponsorsData
+          .filter((group) => 
+            group.subcategories.some((sponsor) => 
+              sponsor.companies && sponsor.companies.length > 0
+            )
+          )
+          .map((group) => (
+            <div class="mb-12">
+              <h2 class="text-3xl font-overpassBold font-bold text-center mb-8 text-gray-800">
+                {group.category}
+              </h2>
+              {group.subcategories
+                .filter((sponsor) => sponsor.companies && sponsor.companies.length > 0)
+                .map((sponsor) => (
+                  <div class="flex flex-col gap-4 text-gray-700 col-span-1 px-section mb-8">
+                    <div class="flex items-center justify-end gap-1">
+                      <div class="flex items-center w-full">
+                        <div class="flex-grow border-t border-gray-300 w-auto flex-1" />
+                        <div class="ml-4 flex items-center w-100 gap-2" style={{ color: sponsor.color }}>
+                          <span>{sponsor.tier}</span>
+                          {(() => {
+                            const IconComponent = icons[sponsor.icon]
+                            return IconComponent ? <IconComponent className="size-4" /> : null
+                          })()}
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class:list={['grid justify-center gap-4 items-center pb-4', classes[sponsor.icon]]}
+                    >
+                      {sponsor.companies.map((company) => (
+                        <a
+                          class:list={[
+                            'flex items-center justify-center mx-auto p-2 w-full hover:scale-110 transition-transform',
+                            sponsor.icon === 'satelite' || sponsor.icon === 'apoyan'
+                              ? 'max-w-40'
+                              : sponsor.icon === 'planeta'
+                                ? 'max-w-48'
+                                : 'max-w-96',
+                          ]}
+                          href={company.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            width={192}
+                            height={96}
+                            src={company.image}
+                            alt={company.name}
+                            class="h-auto w-full object-contain"
+                          />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          ))
+    }
+  </Container>
+</section>

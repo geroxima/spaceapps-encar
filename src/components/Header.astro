@@ -7,46 +7,60 @@ import localLogo from 'public/images/local-logo.webp'
 
 const sections = [
   { name: "Acerca De", href: "#acerca" },
-  // { name: "Preguntas Frecuentes", href: "#faq" },
-//   { name: "Agenda", href: "#agenda" },
-  // { name: "Colaboradores", href: "#colaboradores" },
-  // { name: "Voluntarios", href: "#voluntarios" },
+  { name: "Lugar y Fecha", href: "#lugar-y-fecha" },
+  { name: "Colaboradores", href: "#colaboradores" },
+  { name: "Voluntarios", href: "#voluntarios" },
 ];
 ---
 
-<header class="sticky-header flex items-center justify-between pt-4 px-6">
-  <!-- Logo -->
-  <a href="#" aria-label="Ir a la página de inicio">
-    <Image src={localLogo} width={100} height={100} alt="Local event logo"/>
-  </a>
+<header class="header-fixed">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between py-4">
+      <!-- Logo -->
+      <a href="#" aria-label="Ir a la página de inicio" class="flex-shrink-0">
+        <Image src={localLogo} width={150} height={150} alt="Local event logo" class="rounded-lg"/>
+      </a>
 
-  <!-- Desktop Navigation -->
-  <div class="hidden xl:flex justify-center gap-8">
-    {
-      sections.map(({ name, href }) => (
-        <a href={href} class="text-white hover:underline hover:text-rocketRed transition-all ease-out duration-75 uppercase font-overpassBold font-bold">
-          {name}
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8">
+        {
+          sections.map(({ name, href }) => (
+            <a 
+              href={href} 
+              class="nav-link text-white hover:text-neonYellow transition-colors duration-200 uppercase font-overpassBold font-bold text-sm tracking-wide"
+            >
+              {name}
+            </a>
+          ))
+        }
+        
+        <!-- Desktop CTA Button -->
+        <a
+          href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-neonYellow text-black font-bold px-4 py-2 rounded-lg text-sm transition-all duration-200 hover:bg-[#C7D806] hover:scale-105 whitespace-nowrap ml-4"
+        >
+          REGISTRARSE
         </a>
-      ))
-    }
-  </div>
+      </nav>
 
-  <!-- Mobile Hamburger Menu -->
-  <button aria-label="Abrir menú" class="p-2 xl:hidden text-white" id="menuButton">
-    <!-- Replace with your hamburger icon or use simple lines -->
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-    </svg>
-  </button>
+      <!-- Mobile Hamburger Menu -->
+      <button aria-label="Abrir menú" class="p-2 lg:hidden text-white" id="menuButton">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
 
   <!-- Mobile Menu -->
   <div
-    class="fixed inset-0 z-[888] flex w-screen h-[100dvh] flex-col items-center overflow-x-auto xl:hidden backdrop-blur-3xl bg-deepBlue/95 opacity-0 pointer-events-none transition-opacity duration-300"
+    class="fixed inset-0 z-[888] flex w-screen h-[100dvh] flex-col items-center overflow-x-auto lg:hidden backdrop-blur-3xl bg-deepBlue/95 opacity-0 pointer-events-none transition-opacity duration-300"
     id="menuMobileContent"
   >
     <aside class="flex w-full items-center justify-end px-6 pt-6">
       <button aria-label="Cerrar menú" id="innerMenuButton" class="p-2 text-white">
-        <!-- Replace with your close icon or use simple X -->
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
@@ -64,21 +78,34 @@ const sections = [
           </a>
         ))
       }
+      
+      <!-- Mobile CTA Button -->
+      <a
+        href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-neonYellow text-black font-bold px-6 py-3 rounded-lg text-xl transition-all duration-200 hover:bg-[#C7D806] mt-4 w-full text-center uppercase tracking-wider"
+      >
+        REGISTRARSE AHORA
+      </a>
     </nav>
   </div>
 </header>
 
 <style>
-  .sticky-header {
+  .header-fixed {
     position: fixed;
+    top: 0;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    top: 0;
-    z-index: 500;
-    backdrop-filter: blur(5px);
-    background-color: rgba(7, 23, 63, 0.9); /* deepBlue with transparency */
+    z-index: 999;
+    backdrop-filter: blur(8px);
+    background-color: rgba(7, 23, 63, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-link:hover {
+    text-decoration: underline;
   }
 
   #menuMobileContent {
