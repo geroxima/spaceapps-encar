@@ -17,6 +17,9 @@ importers:
       '@fontsource-variable/overpass':
         specifier: ^5.2.6
         version: 5.2.6
+      '@justinribeiro/lite-youtube':
+        specifier: ^1.8.2
+        version: 1.8.2
       astro:
         specifier: ^5.9.1
         version: 5.9.1(@types/node@22.15.30)(jiti@1.21.7)(rollup@4.42.0)(typescript@5.8.3)(yaml@2.8.0)
@@ -692,6 +695,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.9':
     resolution: {integrity: sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==}
+
+  '@justinribeiro/lite-youtube@1.8.2':
+    resolution: {integrity: sha512-wayU5sYA/e5J/1j7zFk8Hoi72Hk67Axy7Za2OFRzsytd9gvtv7ZeWhmdi2lOGbnXwMZHkeMsqxRGFxH60lo5bg==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -2783,6 +2789,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@justinribeiro/lite-youtube@1.8.2': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
