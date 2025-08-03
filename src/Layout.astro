@@ -1,19 +1,27 @@
 ---
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
-import '@/styles/global.css'
+import "@/styles/global.css";
 ---
+
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!-- <meta name="theme-color" content="#07173F" /> -->
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <link rel="icon" type="image/png" href="/icons/favicon-96x96.png" sizes="96x96" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/icons/favicon-96x96.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg" />
     <link rel="shortcut icon" href="/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/icons/apple-touch-icon.png"
+    />
     <meta name="apple-mobile-web-app-title" content="NASA Space Apps" />
     <link rel="manifest" href="/icons/site.webmanifest" />
     <title>NASA Space Apps Challenge Encarnación 2025</title>
@@ -32,10 +40,10 @@ import '@/styles/global.css'
     <!-- OG Meta Tags -->
     <meta
       property="og:image"
-      content="https://sp/og.webp"
+      content="https://spaceappsencarnacion.live/images/og.png"
     />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:image:height" content="1080" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="720" />
     <meta
       property="og:title"
       content="NASA SPACE APPS CHALLENGE ENCARNACIÓN 2025"
@@ -46,54 +54,27 @@ import '@/styles/global.css'
     />
     <meta property="og:url" content="https://spaceappsencarnacion.live" />
 
-    <!-- Schema.org Structured Data for Hackathon -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" class="schemantra">
       {
         "@context": "https://schema.org",
         "@type": "Hackathon",
+        "@id": "NASA Space Apps Challenge Encarnación 2025",
+        "additionalType": "[https://spaceappsencarnacion.live/,https://www.spaceappschallenge.org/2025/local-events/Encarnacion/]",
+        "alternateName": "Space Apps Encarnacióñ",
+        "description": "Hackathon de 48 horas NASA Space Apps Challenge ENCARNACIÓN 2025 únete el 4 y 5 de Octubre. El evento perfecto para que tu talento brille en ciencia, tecnología e innovación",
+        "doorTime": "2025-10-04T09:14",
+        "endDate": "2025-10-05T23:59",
+        "inLanguage": "[Spanish,English]",
+        "keywords": "NASA, Space Apps, Encarnación, Paraguay, Hackathon, 2025, Ciencia, Tecnología, Innovación, Gratis, UNI, FIUNI",
+        "maximumAttendeeCapacity": "100",
+        "maximumPhysicalAttendeeCapacity": "100",
+        "maximumVirtualAttendeeCapacity": "0",
         "name": "NASA Space Apps Challenge Encarnación 2025",
-        "startDate": "2025-10-04",
-        "endDate": "2025-10-05",
-        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "location": {
-          "@type": "Place",
-          "name": "Encarnación",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Encarnación",
-            "addressRegion": "Itapúa",
-            "addressCountry": "PY"
-          }
-        },
-        "image": "https://spaceapps-encar.pages.dev/images/og.png",
-        "description": "Únete a nosotros en el NASA Space Apps Challenge ENCARNACIÓN 2025 este 4 y 5 de Octubre. El evento perfecto para que tu talento brille en ciencia, tecnología e innovación.",
-        "about": [
-          "NASA",
-          "Space Apps",
-          "Hackathon",
-          "Ciencia",
-          "Tecnología",
-          "Innovación",
-          "Datos abiertos",
-          "Inteligencia artificial"
-        ],
-        "keywords": "NASA, Space Apps, Encarnación, Paraguay, Hackathon, 2025, Ciencia, Tecnología, Innovación",
-        "organizer": {
-          "@type": "Organization",
-          "name": "NASA Space Apps Challenge Encarnación",
-          "url": "https://spaceappsencarnacion.live"
-        },
-        "sponsor": {
-          "@type": "Organization",
-          "name": "NASA"
-        },
-        "inLanguage": "es",
-        "isAccessibleForFree": true,
-        "audience": {
-          "@type": "Audience",
-          "name": "Desarrolladores, diseñadores, científicos, estudiantes y profesionales interesados en tecnología espacial"
-        },
+        "typicalAgeRange": "15-99",
+        "image": "https://spaceappsencarnacion.live/images/og.png"
+        "url": "https://spaceappsencarnacion.live/",
+        "disambiguatingDescription": "A local event in Encarnacion, Paraguay, held on October 4-5, 2025, as part of the global NASA International Space Apps Challenge—a 48-hour hackathon where teams use NASA and partner space agency open data to solve real-world problems",
+        "identifier": "https://spaceappsencarnacion.live/"
       }
     </script>
   </head>
@@ -103,7 +84,6 @@ import '@/styles/global.css'
     <Footer />
   </body>
 </html>
-
 
 <!-- <script>
 import Lenis from 'lenis'
