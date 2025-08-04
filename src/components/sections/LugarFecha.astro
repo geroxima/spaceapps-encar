@@ -6,20 +6,29 @@ import PinLocation from "@/components/icons/pin.astro";
 
 <section id="lugar-y-fecha" class="bg-electricBlue">
   <Container>
-    <div class="flex flex-col md:flex-row gap-y-8 md:gap-y-0 md:justify-between">
+    <div
+      class="flex flex-col md:flex-row gap-y-8 md:gap-y-0 md:justify-between"
+    >
       <div class="flex flex-col gap-y-4 md:w-1/2">
-        <h3 class="font-firaSansBlack text-3xl md:text-5xl text-white">FECHA</h3>
+        <h3 class="font-firaSansBlack text-3xl md:text-5xl text-white">
+          FECHA
+        </h3>
         <p class="text-white font-overpass font-medium text-xl md:text-2xl">
           4 y 5 de octubre, desde las 8:00hs
         </p>
         <a
-          href="https://www.example.com"
+          href="./NASA-Space-Apps-Challenge-Encarnacion-2025.ics"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="NASA Space Apps Challenge Encarnación 2025"
           class="flex items-center underline font-bold text-neonYellow font-overpassBold text-base md:text-lg gap-x-2"
           ><span>GUARDAR EN CALENDARIO</span><Calendar /></a
         >
       </div>
       <div class="flex flex-col gap-y-4 md:w-1/2 justify-around mt-8 md:mt-0">
-        <h3 class="font-firaSansBlack text-3xl md:text-5xl text-white">LUGAR</h3>
+        <h3 class="font-firaSansBlack text-3xl md:text-5xl text-white">
+          LUGAR
+        </h3>
         <p class="text-white font-overpass font-medium text-xl md:text-2xl">
           Auditorio Central de la Universidad Nacional de Itapúa (UNI)
         </p>
@@ -27,7 +36,9 @@ import PinLocation from "@/components/icons/pin.astro";
           Campus Encarnación
         </p>
         <a
-          href="https://www.example.com"
+          href="https://maps.app.goo.gl/6edZYX2VtbJHbNMo7"
+          target="_blank"
+          rel="noopener noreferrer"
           class="flex items-center underline font-bold text-neonYellow font-overpassBold text-base md:text-lg gap-x-2"
           ><span>VER EN EL MAPA</span><PinLocation /></a
         >

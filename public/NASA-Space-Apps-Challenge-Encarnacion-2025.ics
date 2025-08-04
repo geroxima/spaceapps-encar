@@ -1,0 +1,27 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ical.marudot.com//iCal Event Maker
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:America/Argentina/Buenos_Aires
+LAST-MODIFIED:20240422T053451Z
+TZURL:https://www.tzurl.org/zoneinfo-outlook/America/Argentina/Buenos_Aires
+X-LIC-LOCATION:America/Argentina/Buenos_Aires
+BEGIN:STANDARD
+TZNAME:-03
+TZOFFSETFROM:-0300
+TZOFFSETTO:-0300
+DTSTART:19700101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTAMP:20250804T200726Z
+UID:1754338020408-95076@ical.marudot.com
+DTSTART;TZID=America/Argentina/Buenos_Aires:20251004T090000
+DTEND;TZID=America/Argentina/Buenos_Aires:20251005T235500
+SUMMARY:NASA Space Apps Challenge Encarnación 2025
+URL:https://spaceappsencarnacion.live/
+DESCRIPTION:Resuelve desafíos propuestos por la NASA y gana premios increíbles en el hackathon global más grande del mundo. Por primera vez en la ciudad de Encarnación
+LOCATION:Auditorio Central de la Universidad Nacional de itapúa
+END:VEVENT
+END:VCALENDAR
