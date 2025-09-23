@@ -36,6 +36,11 @@
             "name": "Agencia Espacial del Paraguay",
             "image": "/images/sponsors/aep.png",
             "url": "https://aep.gov.py"
+          }, 
+          {
+            "name": "Gobernación de Itapúa",
+            "image": "/images/sponsors/itapua-logo.webp",
+            "url": "https://itapua.gov.vpy"
           }
         ]
       }
