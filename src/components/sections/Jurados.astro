@@ -12,7 +12,8 @@ import judgesData from "@/data/judges.json";
     id="jurados"
     class="bg-deepBlue text-white flex flex-col items-center justify-center px-4 py-20 relative overflow-hidden bg-[url(/code.svg)] bg-cover bg-center"
 >
-    <div class="absolute inset-0 w-full h-full bg-deepBlue bg-opacity-95 z-0"></div>
+    <div class="absolute inset-0 w-full h-full bg-deepBlue bg-opacity-95 z-0">
+    </div>
 
     <Container>
         <div class="z-10 text-center mb-12">
@@ -30,16 +31,24 @@ import judgesData from "@/data/judges.json";
                             const dialogId = `dialog-${index}`;
                             const buttonId = `about-judge-${index}`;
                             return (
-                                    <dialog id={dialogId} closedby="any" class="p-6 max-w-md md:w-full lg:w-full xl:md:w-full mx-4">
-                                      <p class="text-xl md:text-base xl:text-base text-black mb-4">{judge.description}</p>
-                                      <form method="dialog" class="flex justify-end">
-                                        <button class="bg-deepBlue text-white px-4 py-2 hover:bg-neonYellow hover:text-black transition">
-                                          OK
-                                        </button>
-                                      </form>
-                                    </dialog>
                                 <div class="flex flex-col gap-y-4 group relative">
-
+                                    <dialog
+                                        id={dialogId}
+                                        closedby="any"
+                                        class="p-6 max-w-md"
+                                    >
+                                        <p class="text-xl md:text-base xl:text-base  text-black">
+                                            {judge.description}
+                                        </p>
+                                        <form
+                                            method="dialog"
+                                            class="flex justify-end"
+                                        >
+                                            <button class="bg-deepBlue text-white px-4 py-2 hover:bg-neonYellow hover:text-black transition rounded">
+                                                Cerrar
+                                            </button>
+                                        </form>
+                                    </dialog>
 
                                     <div class="relative overflow-hidden shadow-lg aspect-square bg-black">
                                         <img
@@ -62,16 +71,14 @@ import judgesData from "@/data/judges.json";
                                         {judge.name}
                                     </h2>
                                     <h3 class="flex items-center gap-2">
-                                      {
-                                        judge.country === "Perú"
-                                          ? "🇵🇪"
-                                          : judge.country === "Paraguay"
-                                          ? "🇵🇾"
-                                          : judge.country === "España"
-                                          ? "🇪🇸"
-                                          : "🌎"
-                                      }{" "}
-                                      {judge.country}
+                                        {judge.country === "Perú"
+                                            ? "🇵🇪"
+                                            : judge.country === "Paraguay"
+                                              ? "🇵🇾"
+                                              : judge.country === "España"
+                                                ? "🇪🇸"
+                                                : "🌎"}{" "}
+                                        {judge.country}
                                     </h3>
                                     {judge.urls && (
                                         <div class="flex flex-col gap-2">
@@ -131,19 +138,19 @@ import judgesData from "@/data/judges.json";
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll("[id^='about-judge-']");
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll("[id^='about-judge-']");
 
-  buttons.forEach((button) => {
-    const index = button.id.split("-").pop();
-    const dialog = document.getElementById(`dialog-${index}`);
+        buttons.forEach((button) => {
+            const index = button.id.split("-").pop();
+            const dialog = document.getElementById(`dialog-${index}`);
 
-    if (dialog && button) {
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        dialog.showModal();
-      });
-    }
-  });
-});
+            if (dialog && button) {
+                button.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    dialog.showModal();
+                });
+            }
+        });
+    });
 </script>
