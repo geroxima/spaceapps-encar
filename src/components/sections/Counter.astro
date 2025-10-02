@@ -4,9 +4,11 @@
 
 <section class="relative bottom-0 left-0 h-[40vh] m-0 overflow-hidden bg-gradient-to-br from-[#0042A6] via-[#043186] to-[#07173F] flex items-center justify-center z-[100]">
     <div class="absolute top-0 left-0 w-full h-full z-[-1] pointer-events-none bg-[repeating-radial-gradient(circle_at_center,_#07173F_0px,_transparent_1px,_transparent_80px,_transparent_10px)]"></div>
-    <div class="flex flex-col items-center w-full">
+
+    <div id="countdown-container" class="flex flex-col items-center w-full">
         <div class="text-white text-lg sm:text-xl xl:text-2xl font-firaSansBlack mb-4 uppercase tracking-wider">Faltan:</div>
-        <div class="flex justify-center items-center gap-8 font-firaSansBlack xl:text-2xl p-8 text-white text-center
+
+        <div id="timer" class="flex justify-center items-center gap-8 font-firaSansBlack xl:text-2xl p-8 text-white text-center
             px-4 sm:px-8
             text-base sm:text-lg md:text-xl xl:text-2xl">
             <div class="flex flex-col items-center">
@@ -27,6 +29,7 @@
             </div>
         </div>
     </div>
+
     <style>
         ::selection {
             background: #eafe07;
@@ -37,6 +40,7 @@
             color: black;
         }
     </style>
+
     <script type="module">
         import 'https://esm.sh/number-flow'
 
@@ -46,6 +50,8 @@
         const flowS = document.getElementById('seconds')
 
         const target = new Date("2025-10-04T00:00:00")
+        const container = document.getElementById('countdown-container')
+        const timer = document.getElementById('timer')
 
         function update() {
             const now = new Date()
@@ -60,6 +66,19 @@
             flowH.update(h)
             flowM.update(m)
             flowS.update(s)
+
+            if (d === 0 && h === 0 && m === 0 && s === 0) {
+                // Prevent adding multiple times
+                if (!document.getElementById("event-now")) {
+                    const eventHappening = document.createElement("div");
+                    eventHappening.id = "event-now"; // optional, to prevent duplicates
+                    eventHappening.className = "text-center text-white font-firaSansBlack text-2xl sm:text-3xl md:text-4xl p-8";
+                    eventHappening.innerHTML = "¡El evento está sucediendo ahora mismo!";
+
+                    container.appendChild(eventHappening);
+                }
+            }
+
         }
 
         update()
