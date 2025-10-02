@@ -36,11 +36,16 @@
             "name": "Agencia Espacial del Paraguay",
             "image": "/images/sponsors/aep.png",
             "url": "https://aep.gov.py"
-          }, 
+          },
           {
             "name": "Gobernación de Itapúa",
             "image": "/images/sponsors/itapua-logo.webp",
-            "url": "https://itapua.gov.vpy"
+            "url": "https://itapua.gov.py"
+          },
+          {
+            "name": "World Space Week Paraguay",
+            "image": "/images/sponsors/wswp.webp",
+            "url": "https://www.worldspaceweek.org/"
           }
         ]
       }
@@ -53,7 +58,14 @@
         "tier": "Galaxia",
         "color": "#E43700",
         "icon": "galaxia",
-        "companies": []
+        "companies": [
+          {
+            "name": "Integradevs",
+            "image": "/images/sponsors/integradevs.png",
+            "url": "https://integradevs.com"
+          }
+
+        ]
       },
       {
         "tier": "Sistema Solar",
@@ -61,9 +73,14 @@
         "icon": "sistema-solar",
         "companies": [
           {
-            "name": "Integradevs",
-            "image": "/images/sponsors/integradevs.png",
-            "url": "https://integradevs.com"
+            "name": "Graficonta",
+            "image": "/images/sponsors/graficonta.webp",
+            "url": "https://www.instagram.com/graficonta"
+          },
+          {
+            "name": "Hotel Cristal",
+            "image": "/images/sponsors/hotel-cristal.webp",
+            "url": "https://www.facebook.com/Hotelcristal00/"
           }
         ]
       },
