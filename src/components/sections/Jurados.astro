@@ -1,0 +1,149 @@
+---
+import Container from "@/components/Container.astro";
+import Instagram from "@/components/icons/instagram.astro";
+import Facebook from "@/components/icons/facebook.astro";
+import LinkedIn from "@/components/icons/linkedin.astro";
+import Scholar from "@/components/icons/graduation.astro";
+import Plus from "@/components/icons/plus.astro";
+import judgesData from "@/data/judges.json";
+---
+
+<section
+    id="jurados"
+    class="bg-deepBlue text-white flex flex-col items-center justify-center px-4 py-20 relative overflow-hidden bg-[url(/code.svg)] bg-cover bg-center"
+>
+    <div class="absolute inset-0 w-full h-full bg-deepBlue bg-opacity-95 z-0"></div>
+
+    <Container>
+        <div class="z-10 text-center mb-12">
+            <p class="text-gray-400 uppercase">Nuestros Jurados</p>
+            <h2 class="text-5xl font-bold mt-2">
+                Conoce a los expertos que evaluarán los proyectos
+            </h2>
+        </div>
+
+        {
+            judgesData &&
+                judgesData.map((group) => (
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 z-10">
+                        {group.judges.map((judge, index) => {
+                            const dialogId = `dialog-${index}`;
+                            const buttonId = `about-judge-${index}`;
+                            return (
+                                    <dialog id={dialogId} closedby="any" class="p-6 max-w-md md:w-full lg:w-full xl:md:w-full mx-4">
+                                      <p class="text-xl md:text-base xl:text-base text-black mb-4">{judge.description}</p>
+                                      <form method="dialog" class="flex justify-end">
+                                        <button class="bg-deepBlue text-white px-4 py-2 hover:bg-neonYellow hover:text-black transition">
+                                          OK
+                                        </button>
+                                      </form>
+                                    </dialog>
+                                <div class="flex flex-col gap-y-4 group relative">
+
+
+                                    <div class="relative overflow-hidden shadow-lg aspect-square bg-black">
+                                        <img
+                                            src={judge.image}
+                                            alt={judge.name}
+                                            class="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity"
+                                        />
+
+                                        <button
+                                            id={buttonId}
+                                            class="absolute m-2 bottom-0 right-0 flex items-end p-4 lg:p-2 bg-neonYellow text-black hover:cursor-pointer hover:scale-110 transition-all duration-75"
+                                            title="Aprender más"
+                                            type="button"
+                                        >
+                                            <Plus />
+                                        </button>
+                                    </div>
+
+                                    <h2 class="font-firaSansBlack uppercase text-xl">
+                                        {judge.name}
+                                    </h2>
+                                    <h3 class="flex items-center gap-2">
+                                      {
+                                        judge.country === "Perú"
+                                          ? "🇵🇪"
+                                          : judge.country === "Paraguay"
+                                          ? "🇵🇾"
+                                          : judge.country === "España"
+                                          ? "🇪🇸"
+                                          : "🌎"
+                                      }{" "}
+                                      {judge.country}
+                                    </h3>
+                                    {judge.urls && (
+                                        <div class="flex flex-col gap-2">
+                                            {judge.urls.linkedin && (
+                                                <a
+                                                    href={judge.urls.linkedin}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-2xl md:text-xl lg:text-base xl:text-base flex gap-x-2 items-center text-white hover:cursor-pointer hover:text-neonYellow transition-colors"
+                                                >
+                                                    <LinkedIn />
+                                                    <span>LinkedIn</span>
+                                                </a>
+                                            )}
+                                            {judge.urls.scholar && (
+                                                <a
+                                                    href={judge.urls.scholar}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-2xl md:text-xl lg:text-base xl:text-base flex gap-x-2 items-center text-white hover:cursor-pointer hover:text-neonYellow transition-colors"
+                                                >
+                                                    <Scholar />
+                                                    <span>Google Scholar</span>
+                                                </a>
+                                            )}
+                                            {judge.urls.instagram && (
+                                                <a
+                                                    href={judge.urls.instagram}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-2xl md:text-xl lg:text-base xl:text-base flex gap-x-2 items-center text-white hover:cursor-pointer hover:text-neonYellow transition-colors"
+                                                >
+                                                    <Instagram />
+                                                    <span>Instagram</span>
+                                                </a>
+                                            )}
+                                            {judge.urls.facebook && (
+                                                <a
+                                                    href={judge.urls.facebook}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    class="text-2xl md:text-xl lg:text-base xl:text-base flex gap-x-2 items-center text-white hover:cursor-pointer hover:text-neonYellow transition-colors"
+                                                >
+                                                    <Facebook />
+                                                    <span>Facebook</span>
+                                                </a>
+                                            )}
+                                        </div>
+                                    )}
+                                </div>
+                            );
+                        })}
+                    </div>
+                ))
+        }
+    </Container>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const buttons = document.querySelectorAll("[id^='about-judge-']");
+
+  buttons.forEach((button) => {
+    const index = button.id.split("-").pop();
+    const dialog = document.getElementById(`dialog-${index}`);
+
+    if (dialog && button) {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        dialog.showModal();
+      });
+    }
+  });
+});
+</script>

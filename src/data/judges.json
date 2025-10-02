@@ -1,0 +1,48 @@
+[
+  {
+    "judges": [
+      {
+        "name": "Dr. Cnel. Liduvino Vielman Díaz",
+        "description": "Coronel DEM (R) Liduvino Vielman Díaz, nacido el 14 de abril de 1962 en Villa Elisa, Dpto. Central (Paraguay). Egresado de la Academia Militar “Mariscal Francisco Solano López” (promoción 1984). Experto en Defensa, Seguridad Nacional y Estrategia Espacial. Piloto Aviador Militar e instructor de vuelo. Posee maestrías en Política y Estrategia Espacial, además de Planificación Estratégica Nacional. Fue impulsor de la ley que creó la Agencia Espacial del Paraguay, donde se desempeñó como Presidente Ejecutivo. También ha sido vinculado al Ministerio de Defensa Nacional y la Fuerza Aérea Paraguaya.",
+        "image": "/images/judges/jurado-vielman-diaz.webp",
+        "urls": {
+          "instagram": "https://www.instagram.com/lidu_pilotmil/",
+          "facebook": "https://www.facebook.com/liduvino.vielmandiaz/"
+        },
+        "country": "Paraguay"
+      },
+      {
+        "name": "Dra. Estelvina Rodríguez Portillo",
+        "description": "Dra. Estelvina Rodríguez Portillo, investigadora paraguaya en Ciencias Ambientales. Ha sido Directora de la carrera de Ingeniería Ambiental en la Universidad Nacional de Itapúa (UNI). Participa activamente en trabajos sobre gestión de recursos hídricos, calidad del agua y medio ambiente en Paraguay. Ha sido mentora en proyectos universitarios e investigativos locales.",
+        "image": "/images/judges/estelvina-rodriguez.webp",
+        "urls": {
+          "scholar": "https://scholar.google.com/citations?user=WNRsBo4AAAAJ",
+          "linkedin": "https://www.linkedin.com/in/estelvina-rodr%C3%ADguez-portillo-82245469/"
+        },
+        "country": "Paraguay"
+      },
+      {
+        "name": "Dr. Jesús Martínez Frías",
+        "description": "Dr. Jesús Martínez-Frías, Doctor en Ciencias Geológicas por la Universidad Complutense de Madrid (1986). Investigador del CSIC (España), con especialidad en meteoritos, geología planetaria y astrobiología. Ha realizado estancias de investigación en universidades de Reino Unido, Alemania, Canadá y EE. UU. Actualmente lidera grupos de investigación en geociencias planetarias, es Director del Laboratorio de Geociencias de Lanzarote, Profesor Honorífico, y coordinador de la Red Española de Planetología y Astrobiología (REDESPA).",
+        "image": "/images/judges/jesus-frias.webp",
+        "urls": {
+          "linkedin": "https://www.linkedin.com/in/jes%C3%BAs-mart%C3%ADnez-fr%C3%ADas-28903814",
+          "scholar": "https://scholar.google.com/citations?user=yMtESVIAAAAJ",
+          "facebook": "https://www.facebook.com/DrJesusMartinezFrias/"
+        },
+        "country": "España"
+      },
+      {
+        "name": "Dr. Octavio Chon Torres",
+        "description": "Dr. Octavio A. Chon Torres, filósofo peruano especializado en epistemología, filosofía de la ciencia, astrobiología y astrobioética. Posee doctorado en Filosofía (UNMSM) y ha sido docente e investigador en la Universidad de Lima. Es fundador de la Asociación Peruana de Astrobiología (ASPAST) y lidera el proyecto “Estratósfera”. Ha editado obras sobre inteligencia extraterrestre y reflexiona sobre implicaciones filosóficas de la vida en otros mundos.",
+        "image": "/images/judges/chon-torres.webp",
+        "urls": {
+          "linkedin": "https://www.linkedin.com/in/octavio-a-chon-torres-49233450",
+          "scholar": "https://scholar.google.com/citations?user=Rfeahp0AAAAJ",
+          "instagram": "https://www.instagram.com/octavio_chon/"
+        },
+        "country": "Perú"
+      }
+    ]
+  }
+]
