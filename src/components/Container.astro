@@ -1,7 +1,10 @@
 ---
-const { class: className, id:id} = Astro.props
+const { class: className, id: id } = Astro.props;
 ---
 
-<div class:list={['flex flex-col px-4 lg:md-0 mx-auto container py-12', className]} id={id}>
+<div
+  class:list={["lg:md-0 container mx-auto flex flex-col px-4 py-12", className]}
+  id={id}
+>
   <slot />
 </div>

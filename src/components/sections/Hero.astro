@@ -7,32 +7,32 @@ import planetsImage from "/public/images/hero-encar-rings.webp";
 ---
 
 <section
-  class="min-h-screen text-white flex items-center font-overpassRegular px-4 pt-40 md:pt-36 md:py-8 relative overflow-hidden"
+  class="font-overpassRegular relative flex min-h-screen items-center overflow-hidden px-4 pt-40 text-white md:py-8 md:pt-36"
 >
   <div
-    class="z-10 absolute inset-0 bg-gradient-to-br from-electricBlue/90 via-deepBlue/60 to-black"
+    class="absolute inset-0 z-10 bg-gradient-to-br from-electricBlue/90 via-deepBlue/60 to-black"
   >
   </div>
   <div class="stars"></div>
   <div class="twinkling"></div>
-  <div class="container mx-auto relative z-10">
-    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[80vh]">
+  <div class="container relative z-10 mx-auto">
+    <div class="grid min-h-[80vh] items-center gap-8 lg:grid-cols-2 lg:gap-12">
       <!-- Left Column - Content -->
       <div class="flex flex-col justify-center space-y-6 lg:space-y-8">
         <div class="space-y-4">
           <h1
-            class="font-firaSansBlack text-3xl text-center sm:text-4xl md:text-5xl lg:text-6xl lg:text-left leading-tight"
+            class="text-center font-firaSansBlack text-3xl leading-tight sm:text-4xl md:text-5xl lg:text-left lg:text-6xl"
           >
             LLEGA EL NASA SPACE APPS CHALLENGE
           </h1>
           <h2
-            class="text-xl sm:text-2xl md:text-3xl text-center lg:text-4xl lg:text-left font-bold text-neonYellow"
+            class="text-center text-xl font-bold text-neonYellow sm:text-2xl md:text-3xl lg:text-left lg:text-4xl"
           >
             ¡Por primera vez en Encarnación!
           </h2>
 
           <h3
-            class="text-2xl sm:text-xl md:text-2xl lg:text-3xl flex gap-x-2 items-center justify-center md:justify-start text-center md:text-left"
+            class="flex items-center justify-center gap-x-2 text-center text-2xl sm:text-xl md:justify-start md:text-left md:text-2xl lg:text-3xl"
           >
             <Calendar />
             <span>4 y 5 de Octubre del 2025</span>
@@ -45,11 +45,11 @@ import planetsImage from "/public/images/hero-encar-rings.webp";
           </span> -->
           <div class="pt-4">
             <p
-              class="text-base sm:text-lg md:text-xl lg:text-left opacity-95 leading-relaxed"
+              class="text-base leading-relaxed opacity-95 sm:text-lg md:text-xl lg:text-left"
             >
               <strong
                 >Resuelve desafíos propuestos por la <span
-                  class="text-neonYellow font-semibold">NASA</span
+                  class="font-semibold text-neonYellow">NASA</span
                 > y gana premios increíbles</strong
               > en el hackathon global más grande del mundo. El lugar donde tus ideas,
               pueden cambiar el mundo.
@@ -59,29 +59,29 @@ import planetsImage from "/public/images/hero-encar-rings.webp";
         </div>
 
         <div
-          class="flex justify-center lg:justify-start items-center w-full pt-6"
+          class="flex w-full items-center justify-center pt-6 lg:justify-start"
         >
           <a
             href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
             target="_blank"
             rel="noopener noreferrer"
-            class="bg-neonYellow text-black font-bold px-6 py-4 sm:px-8 sm:py-5 rounded-lg text-base sm:text-lg lg:text-xl transition-all duration-200 hover:bg-[#C7D806] hover:scale-105 flex items-center gap-3 whitespace-nowrap max-w-[90vw] sm:max-w-none"
+            class="flex max-w-[90vw] items-center gap-3 whitespace-nowrap rounded-lg bg-neonYellow px-6 py-4 text-base font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#C7D806] sm:max-w-none sm:px-8 sm:py-5 sm:text-lg lg:text-xl"
           >
-            <Rocket class="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
+            <Rocket class="h-5 w-5 sm:h-6 sm:w-6 lg:h-7 lg:w-7" />
             <span class="whitespace-nowrap">REGÍSTRATE AHORA</span>
           </a>
         </div>
       </div>
 
       <!-- Right Column - Hero Image -->
-      <div class="flex justify-center lg:justify-end items-center">
+      <div class="flex items-center justify-center lg:justify-end">
         <div class="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
           <!-- Main image container -->
           <div class="relative">
             <Image
               src={planetsImage}
               alt="Planets and space exploration themed illustration"
-              class="relative z-10 w-full h-auto rounded-3xl transform hover:scale-105 transition-transform duration-200 ease-out"
+              class="relative z-10 h-auto w-full transform rounded-3xl transition-transform duration-200 ease-out hover:scale-105"
               width={800}
               height={800}
               loading="eager"
@@ -94,39 +94,45 @@ import planetsImage from "/public/images/hero-encar-rings.webp";
   </div>
 </section>
 
-
 <style>
   @keyframes move-twink-back {
-    from {background-position:0 0;}
-    to {background-position:-10000px 5000px;}
-}
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -10000px 5000px;
+    }
+  }
 
-@keyframes move-clouds-back {
-    from {background-position:0 0;}
-    to {background-position:10000px 0;}
-}
+  @keyframes move-clouds-back {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 10000px 0;
+    }
+  }
 
-.stars, .twinkling {
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  height:100%;
-  display:block;
-}
+  .stars,
+  .twinkling {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 
-.stars {
-  background:#000 url(/images/stars.png) repeat top center;
-  z-index:0;
-}
+  .stars {
+    background: #000 url(/images/stars.png) repeat top center;
+    z-index: 0;
+  }
 
-.twinkling{
-  background:transparent url(/images/twinkling.png) repeat top center;
-  z-index:1;
-  animation:move-twink-back 200s linear infinite;
-}
-
-
+  .twinkling {
+    background: transparent url(/images/twinkling.png) repeat top center;
+    z-index: 1;
+    animation: move-twink-back 200s linear infinite;
+  }
 </style>

@@ -2,33 +2,37 @@
 import Container from "@/components/Container.astro";
 ---
 
-<section class="bg-white py-16 bg-[url(/rosette.svg)] bg-cover bg-center" id="registro">
-    <Container>
-      <div class="text-center space-y-8">
-        <h1 class="text-3xl sm:text-4xl text-black">
-          Mira este breve video de como <strong>registrarte</strong>
-        </h1>
-        
-        <div class="max-w-4xl mx-auto">
-          <lite-youtube
-            class="rounded-lg"
-            videoid="_AL3QrPBugc"
-            
-            videotitle="NASA Space Apps Challenge - Tutorial de Registro">
-          </lite-youtube>
-        </div>
-        
-        <a
-            href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="bg-neonYellow text-black font-bold px-6 py-4 sm:px-8 sm:py-5 rounded-lg text-base sm:text-lg lg:text-xl transition-all duration-200 hover:bg-[#C7D806] hover:scale-105 flex items-center gap-3 whitespace-nowrap max-w-[90vw] sm:max-w-none mx-auto my-auto w-fit"
-          >
-            <span class="whitespace-nowrap">REGÍSTRATE AHORA</span>
-          </a>
-    </Container>
-</section>
+<section
+  class="bg-white bg-[url(/rosette.svg)] bg-cover bg-center py-16"
+  id="registro"
+>
+  <Container>
+    <div class="space-y-8 text-center">
+      <h1 class="text-3xl text-black sm:text-4xl">
+        Mira este breve video de como <strong>registrarte</strong>
+      </h1>
 
-<script>
-  import "@justinribeiro/lite-youtube";
-</script>
+      <div class="mx-auto max-w-4xl">
+        <lite-youtube
+          class="rounded-lg"
+          videoid="_AL3QrPBugc"
+          videotitle="NASA Space Apps Challenge - Tutorial de Registro"
+        >
+        </lite-youtube>
+      </div>
+
+      <a
+        href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mx-auto my-auto flex w-fit max-w-[90vw] items-center gap-3 whitespace-nowrap rounded-lg bg-neonYellow px-6 py-4 text-base font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#C7D806] sm:max-w-none sm:px-8 sm:py-5 sm:text-lg lg:text-xl"
+      >
+        <span class="whitespace-nowrap">REGÍSTRATE AHORA</span>
+      </a>
+    </div>
+  </Container>
+
+  <script>
+    import "@justinribeiro/lite-youtube";
+  </script>
+</section>

@@ -2,86 +2,116 @@
 /* No script changes needed */
 ---
 
-<section class="relative bottom-0 left-0 h-[40vh] m-0 overflow-hidden bg-gradient-to-br from-[#0042A6] via-[#043186] to-[#07173F] flex items-center justify-center z-[100]">
-    <div class="absolute top-0 left-0 w-full h-full z-[-1] pointer-events-none bg-[repeating-radial-gradient(circle_at_center,_#07173F_0px,_transparent_1px,_transparent_80px,_transparent_10px)]"></div>
+<section
+  class="relative bottom-0 left-0 z-[100] m-0 flex h-[40vh] items-center justify-center overflow-hidden bg-gradient-to-br from-[#0042A6] via-[#043186] to-[#07173F]"
+>
+  <div
+    class="pointer-events-none absolute left-0 top-0 z-[-1] h-full w-full bg-[repeating-radial-gradient(circle_at_center,_#07173F_0px,_transparent_1px,_transparent_80px,_transparent_10px)]"
+  >
+  </div>
 
-    <div id="countdown-container" class="flex flex-col items-center w-full">
-        <div class="text-white text-lg sm:text-xl xl:text-2xl font-firaSansBlack mb-4 uppercase tracking-wider">Faltan:</div>
-
-        <div id="timer" class="flex justify-center items-center gap-8 font-firaSansBlack xl:text-2xl p-8 text-white text-center
-            px-4 sm:px-8
-            text-base sm:text-lg md:text-xl xl:text-2xl">
-            <div class="flex flex-col items-center">
-                <number-flow id="days" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
-                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">días</div>
-            </div>
-            <div class="flex flex-col items-center">
-                <number-flow id="hours" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
-                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">horas</div>
-            </div>
-            <div class="flex flex-col items-center">
-                <number-flow id="minutes" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
-                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">minutos</div>
-            </div>
-            <div class="flex flex-col items-center">
-                <number-flow id="seconds" class="text-xl sm:text-2xl md:text-3xl"></number-flow>
-                <div class="text-xs sm:text-base text-white mt-2 uppercase tracking-wider">segundos</div>
-            </div>
-        </div>
+  <div id="countdown-container" class="flex w-full flex-col items-center">
+    <div
+      class="mb-4 font-firaSansBlack text-lg uppercase tracking-wider text-white sm:text-xl xl:text-2xl"
+    >
+      Faltan:
     </div>
 
-    <style>
-        ::selection {
-            background: #eafe07;
-            color: black;
+    <div
+      id="timer"
+      class="flex items-center justify-center gap-8 p-8 px-4 text-center font-firaSansBlack text-base text-white sm:px-8 sm:text-lg md:text-xl xl:text-2xl"
+    >
+      <div class="flex flex-col items-center">
+        <number-flow id="days" class="text-xl sm:text-2xl md:text-3xl"
+        ></number-flow>
+        <div
+          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+        >
+          días
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <number-flow id="hours" class="text-xl sm:text-2xl md:text-3xl"
+        ></number-flow>
+        <div
+          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+        >
+          horas
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <number-flow id="minutes" class="text-xl sm:text-2xl md:text-3xl"
+        ></number-flow>
+        <div
+          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+        >
+          minutos
+        </div>
+      </div>
+      <div class="flex flex-col items-center">
+        <number-flow id="seconds" class="text-xl sm:text-2xl md:text-3xl"
+        ></number-flow>
+        <div
+          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+        >
+          segundos
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    ::selection {
+      background: #eafe07;
+      color: black;
+    }
+    ::-moz-selection {
+      background: #eafe07;
+      color: black;
+    }
+  </style>
+
+  <script type="module">
+    import "https://esm.sh/number-flow";
+
+    const flowD = document.getElementById("days");
+    const flowH = document.getElementById("hours");
+    const flowM = document.getElementById("minutes");
+    const flowS = document.getElementById("seconds");
+
+    const target = new Date("2025-10-04T00:00:00");
+    const container = document.getElementById("countdown-container");
+    const timer = document.getElementById("timer");
+
+    function update() {
+      const now = new Date();
+      const diff = Math.max(0, target - now);
+
+      const s = Math.floor(diff / 1000) % 60;
+      const m = Math.floor(diff / 60000) % 60;
+      const h = Math.floor(diff / 3600000) % 24;
+      const d = Math.floor(diff / 86400000);
+
+      flowD.update(d);
+      flowH.update(h);
+      flowM.update(m);
+      flowS.update(s);
+
+      if (d === 0 && h === 0 && m === 0 && s === 0) {
+        // Prevent adding multiple times
+        if (!document.getElementById("event-now")) {
+          const eventHappening = document.createElement("div");
+          eventHappening.id = "event-now"; // optional, to prevent duplicates
+          eventHappening.className =
+            "text-center text-white font-firaSansBlack text-2xl sm:text-3xl md:text-4xl p-8";
+          eventHappening.innerHTML = "¡El evento está sucediendo ahora mismo!";
+
+          container.appendChild(eventHappening);
         }
-        ::-moz-selection {
-            background: #eafe07;
-            color: black;
-        }
-    </style>
+      }
+    }
 
-    <script type="module">
-        import 'https://esm.sh/number-flow'
-
-        const flowD = document.getElementById('days')
-        const flowH = document.getElementById('hours')
-        const flowM = document.getElementById('minutes')
-        const flowS = document.getElementById('seconds')
-
-        const target = new Date("2025-10-04T00:00:00")
-        const container = document.getElementById('countdown-container')
-        const timer = document.getElementById('timer')
-
-        function update() {
-            const now = new Date()
-            const diff = Math.max(0, target - now)
-
-            const s = Math.floor(diff / 1000) % 60
-            const m = Math.floor(diff / 60000) % 60
-            const h = Math.floor(diff / 3600000) % 24
-            const d = Math.floor(diff / 86400000)
-
-            flowD.update(d)
-            flowH.update(h)
-            flowM.update(m)
-            flowS.update(s)
-
-            if (d === 0 && h === 0 && m === 0 && s === 0) {
-                // Prevent adding multiple times
-                if (!document.getElementById("event-now")) {
-                    const eventHappening = document.createElement("div");
-                    eventHappening.id = "event-now"; // optional, to prevent duplicates
-                    eventHappening.className = "text-center text-white font-firaSansBlack text-2xl sm:text-3xl md:text-4xl p-8";
-                    eventHappening.innerHTML = "¡El evento está sucediendo ahora mismo!";
-
-                    container.appendChild(eventHappening);
-                }
-            }
-
-        }
-
-        update()
-        setInterval(update, 1000)
-    </script>
+    update();
+    setInterval(update, 1000);
+  </script>
 </section>

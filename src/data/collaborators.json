@@ -32,7 +32,7 @@
             "image": "/images/sponsors/cyt.png",
             "url": "https://facyt.uni.edu.py/"
           },
-           {
+          {
             "name": "Agencia Espacial del Paraguay",
             "image": "/images/sponsors/aep.png",
             "url": "https://aep.gov.py"
@@ -64,7 +64,6 @@
             "image": "/images/sponsors/integradevs.png",
             "url": "https://integradevs.com"
           }
-
         ]
       },
       {
