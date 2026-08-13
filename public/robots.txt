@@ -6,4 +6,4 @@ User-agent: googlebot-mobile
 Disallow: 
 User-agent: *
 Disallow: 
-Sitemap: https://spaceappsencarnacion.live/sitemap.xml
+Sitemap: https://nasaencar.com/sitemap.xml
