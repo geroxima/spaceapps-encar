@@ -1,33 +1,41 @@
+import type { ImageMetadata } from "astro";
+
+import first from "@/assets/winners/first.jpg";
+import second from "@/assets/winners/second.jpg";
+import third from "@/assets/winners/third.jpg";
+import third2 from "@/assets/winners/third-2.jpg";
+import third3 from "@/assets/winners/third-3.jpg";
+
 export interface Winner {
   name: string;
   place: number;
-  image: string;
+  image: ImageMetadata;
 }
 
 export const winners: Winner[] = [
   {
     name: "ENCOM PY",
     place: 1,
-    image: "/images/2025/winners/first.jpg",
+    image: first,
   },
   {
     name: "EXOPLANETA",
     place: 2,
-    image: "/images/2025/winners/second.jpg",
+    image: second,
   },
   {
     name: "YVAGA EXPLORERS",
     place: 3,
-    image: "/images/2025/winners/third.jpg",
+    image: third,
   },
   {
     name: "BTI DEL CREE",
     place: 3,
-    image: "/images/2025/winners/third-2.jpg",
+    image: third2,
   },
   {
     name: "ASTROHORSE",
     place: 3,
-    image: "/images/2025/winners/third-3.jpg",
+    image: third3,
   },
 ];

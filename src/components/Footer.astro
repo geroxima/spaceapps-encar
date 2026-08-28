@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Container from "@/components/Container.astro";
-import logo from "public/images/local-logo.webp";
+import logo from "@/assets/local-logo.webp";
 ---
 
 <footer class="bg-deepBlue text-white">
@@ -10,12 +10,12 @@ import logo from "public/images/local-logo.webp";
     <aside
       class="mb-10 flex w-full flex-col items-center 2xl:mb-0 2xl:w-1/2 2xl:items-start"
     >
-      <img
-        src="/images/local-logo.webp"
-        width="120"
-        height="120"
+      <Image
+        src={logo}
+        width={120}
+        height={120}
         alt="NASA Space Apps Challenge Logo"
-        class="mb-4"
+        class="mb-4 h-auto w-auto"
       />
       <p class="mb-6 text-center text-sm md:text-base 2xl:text-left">
         2026 NASA Space Apps Challenge

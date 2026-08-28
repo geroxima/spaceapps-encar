@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import Container from "@/components/Container.astro";
 import Star from "@/components/icons/star.astro";
 import { winners } from "@/data/winners.ts";
@@ -97,11 +98,13 @@ const podium = [
                   "overflow-hidden rounded-full bg-electricBlue/50",
                 ]}
               >
-                <img
+                <Image
                   src={winner.image}
                   alt={`Equipo ganador ${winner.name}, ${label}`}
                   loading="lazy"
                   decoding="async"
+                  widths={[128, 192, 256, 384]}
+                  sizes="(min-width: 1280px) 256px, (min-width: 1024px) 208px, (min-width: 640px) 192px, 144px"
                   class="aspect-square h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

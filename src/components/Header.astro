@@ -1,7 +1,7 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 import RegisterButton from "@/components/RegisterButton.astro";
-import localLogo from "public/images/local-logo.webp";
+import logoLight from "@/assets/local-logo-light.webp";
 // You'll need to create these icon components or replace with your own
 // import HamburgerMenu from "@/icons/HamburgerMenu.astro";
 // import Close from "@/icons/Close.astro";
@@ -21,12 +21,12 @@ const sections = [
     <div class="flex items-center justify-between py-4">
       <!-- Logo -->
       <a href="/#" aria-label="Ir a la página de inicio" class="flex-shrink-0">
-        <img
-          src="/images/local-logo-light.webp"
-          width="100"
-          height="100"
+        <Image
+          src={logoLight}
+          width={100}
+          height={56}
           alt="Local event logo"
-          class="rounded-lg"
+          class="h-auto w-auto rounded-lg"
         />
       </a>
 
