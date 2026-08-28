@@ -2,7 +2,7 @@
 import RegisterButton from "@/components/RegisterButton.astro";
 import Container from "@/components/Container.astro";
 import { Image } from "astro:assets";
-import heroLogo from "/public/images/next-frontier/the-next-frontier-logo.webp";
+import heroLogo from "@/assets/the-next-frontier-logo.webp";
 import Rocket from "@/components/icons/rocket.astro";
 import Calendar from "@/components/icons/calendar.astro";
 import ArrowUpRight from "@/components/icons/arrow-up-right.astro";
@@ -23,6 +23,8 @@ const stats = [
       <Image
         src={heroLogo}
         alt="The Next Frontier"
+        width={500}
+        height={500}
         loading="eager"
         fetchpriority="high"
         class="h-auto w-full max-w-[200px] drop-shadow-[0_0_30px_rgba(46,150,245,0.4)] sm:max-w-[270px] lg:w-[clamp(230px,23vw,350px)] lg:max-w-none xl:w-[clamp(330px,27vw,450px)]"
