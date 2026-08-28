@@ -12,7 +12,7 @@ export const links: LinkItem[] = [
     url: "https://www.spaceappschallenge.org/2026/local-events/encarnacion/",
     icon: "register",
     featured: true,
-    external: true,
+    external: false,
   },
   {
     label: "Sé voluntario",
