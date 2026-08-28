@@ -1,0 +1,228 @@
+---
+import Container from "@/components/Container.astro";
+
+const photos = Array.from(
+  { length: 28 },
+  (_, i) => `/images/2025/${String(i + 1).padStart(3, "0")}.jpg`,
+);
+const TOTAL = photos.length;
+---
+
+<section
+  id="edicion-2025"
+  class="relative scroll-mt-28 overflow-hidden border-t border-electricBlue/10 bg-white bg-[url(/rosette.svg)] bg-cover bg-center"
+>
+  <div class="absolute inset-0 z-0 h-full w-full bg-white bg-opacity-95" />
+
+  <Container class="z-10">
+    <div class="mb-10 text-center">
+      <p
+        class="font-overpassBold text-sm uppercase tracking-[0.2em] text-electricBlue sm:text-base"
+      >
+        Reviví el evento
+      </p>
+      <h2
+        class="mt-3 font-firaSansBlack text-3xl uppercase tracking-wide text-deepBlue sm:text-4xl md:text-5xl"
+      >
+        Fotos de la Edición 2025
+      </h2>
+    </div>
+
+    <div data-gallery class="relative">
+      <div
+        id="gallery-track"
+        tabindex="0"
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Galería de fotos de la edición 2025"
+        class="no-scrollbar flex snap-x snap-mandatory items-stretch gap-4 overflow-x-auto scroll-smooth pb-2"
+      >
+        {photos.map((src, i) => (
+          <figure
+            data-slide
+            aria-roledescription="slide"
+            aria-label={`Foto ${i + 1} de ${TOTAL}`}
+            class="w-[85%] flex-shrink-0 snap-center sm:w-[49%] lg:w-[32%]"
+          >
+            <div
+              class="h-full overflow-hidden rounded-2xl bg-white shadow-lg shadow-deepBlue/10 ring-1 ring-electricBlue/10"
+            >
+              <img
+                src={src}
+                alt={`Participantes del NASA Space Apps Challenge Encarnación 2025`}
+                loading="lazy"
+                decoding="async"
+                class="aspect-[4/3] h-full w-full object-cover"
+              />
+            </div>
+          </figure>
+        ))}
+      </div>
+
+      <div class="mt-6 flex items-center justify-between gap-4">
+        <button
+          id="gallery-prev"
+          type="button"
+          aria-label="Foto anterior"
+          class="flex size-12 flex-shrink-0 items-center justify-center rounded-full border border-electricBlue/30 bg-white text-electricBlue transition-colors hover:bg-neonYellow hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6"
+          >
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
+        </button>
+
+        <div class="flex flex-1 flex-col gap-2 px-2">
+          <div
+            class="flex justify-between font-overpassBold text-xs uppercase tracking-widest text-gray-500 sm:text-sm"
+          >
+            <span id="gallery-counter">01&nbsp;—&nbsp;{TOTAL}</span>
+            <span>2025</span>
+          </div>
+          <div class="h-1 w-full overflow-hidden rounded-full bg-electricBlue/10">
+            <div
+              id="gallery-progress"
+              class="h-full rounded-full bg-neonBlue transition-[width] duration-500 ease-out"
+              style={`
+                width: ${((1 / TOTAL) * 100).toFixed(2)}%;
+              `}
+            />
+          </div>
+        </div>
+
+        <button
+          id="gallery-next"
+          type="button"
+          aria-label="Foto siguiente"
+          class="flex size-12 flex-shrink-0 items-center justify-center rounded-full border border-electricBlue/30 bg-white text-electricBlue transition-colors hover:bg-neonYellow hover:text-black disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-6"
+          >
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  (() => {
+    const track = document.getElementById("gallery-track");
+    const slides = track
+      ? Array.from(track.querySelectorAll("[data-slide]"))
+      : [];
+    const prev = document.getElementById("gallery-prev");
+    const next = document.getElementById("gallery-next");
+    const counter = document.getElementById("gallery-counter");
+    const progress = document.getElementById("gallery-progress");
+    const gallery = document.querySelector("[data-gallery]");
+
+    if (
+      !track ||
+      slides.length === 0 ||
+      !prev ||
+      !next ||
+      !counter ||
+      !progress
+    ) {
+      return;
+    }
+
+    const TOTAL = slides.length;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const step = () =>
+      slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth;
+    const pad = (n) => String(n).padStart(2, "0");
+
+    let active = 0;
+
+    function update(i) {
+      active = Math.max(0, Math.min(TOTAL - 1, i));
+      counter.innerHTML = `${pad(active + 1)}&nbsp;—&nbsp;${pad(TOTAL)}`;
+      progress.style.width = `${((active + 1) / TOTAL) * 100}%`;
+      prev.disabled = active === 0;
+      next.disabled = active === TOTAL - 1;
+    }
+
+    function go(dir) {
+      const rest = track.scrollWidth - track.clientWidth;
+      if (reduced) {
+        track.scrollLeft = Math.max(0, Math.min(rest, track.scrollLeft + dir * step()));
+        return;
+      }
+      track.scrollBy({ left: dir * step(), behavior: "smooth" });
+    }
+
+    prev.addEventListener("click", () => go(-1));
+    next.addEventListener("click", () => go(1));
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) update(slides.indexOf(entry.target));
+        });
+      },
+      { root: track, threshold: 0.6 },
+    );
+    slides.forEach((slide) => io.observe(slide));
+
+    update(0);
+
+    let timer = null;
+    const startAutoplay = () => {
+      if (reduced || document.hidden || timer) return;
+      timer = setInterval(() => {
+        if (active >= TOTAL - 1) {
+          track.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          go(1);
+        }
+      }, 4000);
+    };
+    const stopAutoplay = () => {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    };
+
+    gallery?.addEventListener("mouseenter", stopAutoplay);
+    gallery?.addEventListener("mouseleave", startAutoplay);
+    gallery?.addEventListener("touchstart", stopAutoplay, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        stopAutoplay();
+      } else {
+        startAutoplay();
+      }
+    });
+    window.addEventListener("load", startAutoplay);
+  })();
+</script>

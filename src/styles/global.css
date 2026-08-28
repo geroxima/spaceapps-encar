@@ -27,7 +27,23 @@
 }
 
 @font-face {
+  font-family: "Fira Sans Bold";
+  src: url("/fonts/FiraSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Overpass";
+  src: url("/fonts/overpass-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Overpass Bold";
   src: url("/fonts/overpass-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
@@ -68,4 +84,20 @@ body {
   body {
     scroll-behavior: auto;
   }
+}
+
+::selection {
+  background: #eafe07;
+  color: #07173f;
+}
+
+::-moz-selection {
+  background: #eafe07;
+  color: #07173f;
+}
+
+:focus-visible {
+  outline: 2px solid #0042a6;
+  outline-offset: 2px;
+  border-radius: 4px;
 }

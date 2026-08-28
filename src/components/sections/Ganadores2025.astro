@@ -1,0 +1,146 @@
+---
+import Container from "@/components/Container.astro";
+import Star from "@/components/icons/star.astro";
+import { winners } from "@/data/winners.ts";
+
+const first = winners.find((w) => w.place === 1);
+const second = winners.find((w) => w.place === 2);
+const thirds = winners.filter((w) => w.place === 3);
+
+const podium = [
+  {
+    winner: thirds[0],
+    label: "3º LUGAR",
+    img: "w-28 sm:w-36 lg:w-36 xl:w-40",
+    ring: "ring-2 ring-neonBlue/80",
+    chip: "border border-white/25 bg-white/10 text-white",
+    order: "order-3",
+    lgOrder: "lg:order-1",
+  },
+  {
+    winner: second,
+    label: "2º LUGAR",
+    img: "w-32 sm:w-40 lg:w-44 xl:w-48",
+    ring: "ring-2 ring-white shadow-[0_0_30px_rgba(255,255,255,0.25)]",
+    chip: "border border-white/40 bg-white/10 text-white",
+    order: "order-2",
+    lgOrder: "lg:order-2",
+  },
+  {
+    winner: first,
+    label: "1º LUGAR",
+    img: "w-36 sm:w-48 lg:w-52 xl:w-64",
+    ring: "ring-4 ring-neonYellow shadow-[0_0_50px_rgba(234,254,7,0.35)]",
+    chip: "border border-neonYellow bg-neonYellow text-black",
+    order: "order-1",
+    lgOrder: "lg:order-3",
+  },
+  {
+    winner: thirds[1],
+    label: "3º LUGAR",
+    img: "w-28 sm:w-36 lg:w-36 xl:w-40",
+    ring: "ring-2 ring-neonBlue/80",
+    chip: "border border-white/25 bg-white/10 text-white",
+    order: "order-4",
+    lgOrder: "lg:order-4",
+  },
+  {
+    winner: thirds[2],
+    label: "3º LUGAR",
+    img: "w-28 sm:w-36 lg:w-36 xl:w-40",
+    ring: "ring-2 ring-neonBlue/80",
+    chip: "border border-white/25 bg-white/10 text-white",
+    order: "order-5",
+    lgOrder: "lg:order-5",
+  },
+];
+---
+
+<section
+  id="ganadores"
+  class="winners-bg relative scroll-mt-0 overflow-hidden bg-electricBlue"
+>
+  <Container class="relative z-10 py-20 lg:py-28">
+    <div class="mb-14 text-center lg:mb-20">
+      <h2
+        class="font-firaSansBlack text-4xl uppercase tracking-wide text-white sm:text-5xl md:text-6xl"
+      >
+        <span class="drop-shadow-xl"
+          >Ganadores <span class="text-neonYellow">2025</span></span
+        >
+      </h2>
+      <p
+        class="mx-auto mt-5 max-w-[65ch] font-overpass text-base text-white/85 drop-shadow-xl sm:text-lg"
+      >
+        Los equipos que conquistaron el NASA Space Apps Challenge Encarnación
+        2025 con soluciones a los desafíos de la NASA.
+      </p>
+    </div>
+
+    <div
+      class="flex flex-wrap items-end justify-center gap-x-8 gap-y-12 lg:gap-x-6"
+    >
+      {
+        podium.map(({ winner, label, img, ring, chip, order, lgOrder }) =>
+          winner ? (
+            <div
+              class:list={[
+                order,
+                lgOrder,
+                "group flex w-full flex-col items-center sm:w-1/3 lg:w-auto",
+              ]}
+            >
+              <div
+                class:list={[
+                  img,
+                  ring,
+                  "overflow-hidden rounded-full bg-electricBlue/50",
+                ]}
+              >
+                <img
+                  src={winner.image}
+                  alt={`Equipo ganador ${winner.name}, ${label}`}
+                  loading="lazy"
+                  decoding="async"
+                  class="aspect-square h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+
+              <h3 class="mt-4 max-w-[24ch] text-center font-firaSansBlack text-base uppercase leading-snug tracking-wide text-white sm:text-lg lg:mt-5 lg:text-lg xl:text-xl">
+                {winner.name}
+              </h3>
+
+              <span
+                class:list={[
+                  chip,
+                  "mt-2.5 flex items-center gap-1.5 whitespace-nowrap rounded-full px-4 py-1.5 font-overpassBold text-xs uppercase tracking-widest",
+                ]}
+              >
+                {winner.place === 1 && <Star class="size-3" />}
+                {label}
+              </span>
+            </div>
+          ) : null,
+        )
+      }
+    </div>
+
+    <div
+      class="mx-auto mt-8 hidden h-px max-w-4xl bg-gradient-to-r from-transparent via-white/30 to-transparent lg:mt-5 lg:block"
+      aria-hidden="true"
+    >
+    </div>
+  </Container>
+</section>
+
+<style>
+  .winners-bg {
+    position: relative;
+    /* background-color: #07173f; */
+    background-image: url("/images/spotlight.webp");
+    background-position: center top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: screen;
+  }
+</style>

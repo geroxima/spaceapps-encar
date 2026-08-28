@@ -1,0 +1,46 @@
+---
+const { items = [], class: className = "", speed = 32 } = Astro.props;
+---
+
+<div
+  class:list={["relative overflow-hidden py-2.5", className]}
+  role="marquee"
+  aria-label="Información importante del evento"
+>
+  <div class="marquee-track flex w-max" style={`--marquee-speed:${speed}s`}>
+    {
+      [0, 1].map((clone) => (
+        <div
+          class="flex shrink-0 items-center"
+          aria-hidden={clone === 1 ? "true" : undefined}
+        >
+          {items.map((item) => (
+            <span class="flex items-center whitespace-nowrap text-xs font-bold uppercase tracking-[0.15em] sm:text-sm">
+              <span class="mx-5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-current opacity-60" />
+              {item}
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-track {
+    animation: marquee var(--marquee-speed) linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+</style>

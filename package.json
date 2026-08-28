@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.5.4",
     "@astrojs/tailwind": "^6.0.2",
     "@fontsource-variable/overpass": "^5.2.6",
     "@justinribeiro/lite-youtube": "^1.8.2",
@@ -21,6 +20,7 @@
   "devDependencies": {
     "prettier": "3.9.6",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "0.8.1"
+    "prettier-plugin-tailwindcss": "0.8.1",
+    "typescript": "^7.0.2"
   }
 }

@@ -1,0 +1,54 @@
+---
+
+---
+
+<a
+  href="#registro"
+  id="floatingCta"
+  class="pointer-events-none fixed bottom-5 left-1/2 z-[800] -translate-x-1/2 translate-y-4 opacity-0 transition-all duration-300 sm:bottom-6"
+>
+  <span
+    class="flex items-center gap-2 whitespace-nowrap rounded-full bg-neonYellow px-8 py-4 font-overpass text-sm font-bold uppercase tracking-wider text-deepBlue shadow-xl shadow-deepBlue/25 ring-1 ring-deepBlue/10 transition-transform duration-200 hover:scale-105 sm:text-base"
+  >
+    <span class="relative flex h-2.5 w-2.5">
+      <span
+        class="absolute inline-flex h-full w-full animate-ping rounded-full bg-deepBlue opacity-40"
+      ></span>
+      <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-deepBlue"
+      ></span>
+    </span>
+    Regístrate
+  </span>
+</a>
+
+<script>
+  function updateFloatingCta() {
+    const pill = document.getElementById("floatingCta");
+    if (!pill) return;
+
+    const hero = document.getElementById("inicio");
+    const footer = document.querySelector("footer");
+    const viewport = window.innerHeight;
+    const scrollY = window.scrollY;
+
+    let visible = true;
+
+    if (hero) {
+      const heroBottom = hero.offsetTop + hero.offsetHeight;
+      if (scrollY + viewport < heroBottom) visible = false;
+    }
+
+    if (footer) {
+      const footerTop = footer.offsetTop;
+      if (scrollY + viewport > footerTop) visible = false;
+    }
+
+    pill.classList.toggle("pointer-events-none", !visible);
+    pill.classList.toggle("opacity-0", !visible);
+    pill.classList.toggle("translate-y-4", !visible);
+  }
+
+  window.addEventListener("scroll", updateFloatingCta, { passive: true });
+  window.addEventListener("load", updateFloatingCta);
+  updateFloatingCta();
+</script>

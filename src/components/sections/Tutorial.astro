@@ -1,5 +1,6 @@
 ---
 import Container from "@/components/Container.astro";
+import RegisterButton from "@/components/RegisterButton.astro";
 ---
 
 <section
@@ -8,8 +9,17 @@ import Container from "@/components/Container.astro";
 >
   <Container>
     <div class="space-y-8 text-center">
-      <h1 class="text-3xl text-black sm:text-4xl">
-        Mira este breve video de como <strong>registrarte</strong>
+      <p
+        class="font-overpassBold text-sm uppercase tracking-[0.2em] text-electricBlue"
+      >
+        Cómo participar
+      </p>
+      <h1
+        class="font-firaSansBlack text-3xl uppercase tracking-wide text-deepBlue sm:text-4xl"
+      >
+        Mira este breve video de cómo <span class="text-neonBlue"
+          >registrarte</span
+        >
       </h1>
 
       <div class="mx-auto max-w-4xl">
@@ -21,14 +31,7 @@ import Container from "@/components/Container.astro";
         </lite-youtube>
       </div>
 
-      <a
-        href="https://www.spaceappschallenge.org/2025/local-events/Encarnacion/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mx-auto my-auto flex w-fit max-w-[90vw] items-center gap-3 whitespace-nowrap rounded-lg bg-neonYellow px-6 py-4 text-base font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#C7D806] sm:max-w-none sm:px-8 sm:py-5 sm:text-lg lg:text-xl"
-      >
-        <span class="whitespace-nowrap">REGÍSTRATE AHORA</span>
-      </a>
+      <RegisterButton variant="tutorial" />
     </div>
   </Container>
 

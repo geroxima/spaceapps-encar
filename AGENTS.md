@@ -1,27 +1,65 @@
-# Agent Instructions
+# NASA Space Apps Challenge Encarnación
+
+Static Hackathon Website for the NASA Space Apps Challenge Encarnación
+
+This file gives AI coding agents the context they need to work effectively in this repository. It is read by [Codex](https://openai.com/codex), [Cursor](https://cursor.com), [Sourcegraph Amp](https://ampcode.com), [Aider](https://aider.chat), [Jules](https://jules.google), and other agents that follow the [AGENTS.md spec](https://agents.md).
 
 ## Stack
 
-Astro + Tailwind + pnpm. Use pnpm only, never npm/yarn.
+- **Framework**: Astro (Multi-framework)
 
-## Styling
+## Setup
 
-Full brand/style rules: see `.ai/styling.md`. Read before any UI work.
+- **install**: `pnpm install`
+- **dev**: `pnpm dev`
+- **build**: `pnpm build`
+- **check**: `pnpm astro check`
 
-Quick refs (full detail in styling.md):
+## Code Style
 
-- Colors as Tailwind theme tokens in `tailwind.config.mjs` — use token names (`bg-deep-blue`, `text-neon-yellow`) not raw hex.
-- Fonts: Fira Sans (headings), Overpass (body), Fira Code (code).
-- Never: yellow bg, red bg, headline in yellow, unapproved logo edits.
+- **TypeScript everywhere** — Use TypeScript for new files. Avoid any — prefer unknown and narrow.
+- **ESLint enforced** — Run pnpm lint --fix before committing. Never disable rules without a comment explaining why.
+- **Prettier formatting** — Auto-format on save. Don't hand-format.
+- **Tailwind CSS** — Use utility classes. Extract to a component when patterns repeat 3+ times.
+- **Zero new dependencies** — Don't add packages without explicit approval. Prefer the platform.
+- **Naming conventions** — kebab-case files, PascalCase components, camelCase variables, SCREAMING_SNAKE for env vars.
+- **Sorted imports** — Group external → internal → relative. Path aliases over deep relative imports.
 
-## Commands
+## Testing
 
-- `pnpm dev` — local server
-- `pnpm build` — prod build
-- `pnpm check` — astro type check (run before commit)
+- **Vitest for unit tests** — Co-locate *.test.ts with the source file. Cover the happy path and at least one edge case.
+- **Playwright for e2e** — E2E specs in tests/e2e. Run pnpm test:e2e.
+- **Accessibility checks** — Run automated a11y assertions on critical pages. Manual keyboard test before merging UI changes.
 
-## Conventions
+## Security
 
-- Components: PascalCase `.astro` files in `src/components/`
-- Utility classes only, no inline styles
-- Images: always wrap in rounded/circle holding shape per style guide
+- **Never commit secrets** — No API keys, tokens, or credentials in code. Use .env.local (gitignored) and .env.example for templates.
+- **Validate all external input** — Schema-validate request bodies, URL params, and untrusted JSON with Zod or Valibot.
+- **Server-side auth checks** — Every API route must check authentication AND authorization on the server. Don't rely on client guards.
+
+## Pull Requests & Commits
+
+- **Conventional Commits** — Use feat:, fix:, chore:, etc. Imperative mood, lowercase, no period.
+- **Small, focused PRs** — One logical change per PR. Aim for < 400 lines of diff. Split larger work into stacked PRs.
+- **Tests with the change** — New behavior gets new tests in the same PR. Bug fixes include a regression test.
+- **Run checks before pushing** — Run pnpm lint && pnpm test && pnpm build locally. Don't push red PRs.
+
+## UI & Design System
+
+Any work that touches UI — components, pages, styling, layout — **must** read `./DESIGN.md` first.
+
+- `DESIGN.md` is the single source of truth for colors, typography, spacing, rounded corners, and component styling.
+- Reference design tokens by name (`{colors.primary}`, `{rounded.md}`, `{spacing.lg}`) — never hand-pick hex values or arbitrary pixel sizes.
+- Run `npx @google/design.md lint DESIGN.md` to verify changes don't break the system.
+- New components should reuse existing tokens. If a new token is genuinely needed, add it to `DESIGN.md` first and explain why.
+
+## Project Structure
+
+```
+src/
+src/components/ (Components, sections, icons)
+src/data/ (.ts or .json files for Typed data for the website)
+src/pages (individual pages of the website)
+src/styles (.css style of the webstite)
+public/ (assets for the website)
+```

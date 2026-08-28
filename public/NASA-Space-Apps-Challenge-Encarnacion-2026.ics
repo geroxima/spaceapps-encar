@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//YourSite//ICS Event Generator//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:event-1787103118911-ndvhs5x8@yourdomain.com
+DTSTAMP:20260819T013158Z
+DTSTART;TZID=America/Sao_Paulo:20261114T080000
+DTEND;TZID=America/Sao_Paulo:20261115T223000
+SUMMARY:NASA Space Apps Challenge Encarnación 2026
+DESCRIPTION:El NASA Space Apps Challenge repite en el sur del país\, esta vez los días 14 y 15 de noviembre de 2026. Usá datos reales de la NASA para resolver problemas de la Tierra como el espacio. No hace falta ser experto: hay lugar para estudiantes\, profesionales y para cualquiera con curiosidad por la innovación.
+LOCATION:Auditorio Central\, Escuela de Posgrado\, Universidad Nacional de Itapúa - Lorenzo Luciano Zacarías y Río Paraguay. Ka'aguy Rory\, Encarnación - Itapúa
+END:VEVENT
+END:VCALENDAR

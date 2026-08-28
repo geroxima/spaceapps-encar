@@ -6,8 +6,10 @@ import mentores from "/public/images/mentors.jpg";
 
 <section
   id="mentores"
-  class="relative flex flex-col items-center justify-center overflow-hidden bg-deepBlue bg-[url(/code.svg)] bg-cover bg-center px-4 py-20 text-white"
+  class="relative flex scroll-mt-28 flex-col items-center justify-center overflow-hidden bg-[url(/code.svg)] bg-cover bg-center px-4 py-20"
 >
+  <div class="absolute inset-0 z-0 h-full w-full bg-white bg-opacity-95"></div>
+
   <Container>
     <div class="z-10 flex flex-col items-center gap-8 lg:flex-row lg:gap-12">
       <!-- Image - Left Side -->
@@ -16,7 +18,7 @@ import mentores from "/public/images/mentors.jpg";
           <Image
             src={mentores}
             alt="Mentores del NASA Space Apps Challenge"
-            class="h-auto w-full rounded-md object-cover"
+            class="h-auto w-full rounded-2xl object-cover shadow-xl shadow-deepBlue/10 ring-1 ring-electricBlue/10"
           />
         </div>
       </div>
@@ -24,16 +26,16 @@ import mentores from "/public/images/mentors.jpg";
       <!-- Text Content - Right Side -->
       <div class="flex-1 text-center lg:text-left">
         <h1
-          class="mb-8 font-firaSansBlack text-3xl tracking-wide sm:text-4xl md:text-5xl lg:text-6xl"
+          class="mb-6 font-firaSansBlack text-3xl uppercase tracking-wide text-deepBlue sm:text-4xl md:text-5xl lg:text-6xl"
         >
-          MENTORES
+          Mentores
         </h1>
 
         <p
-          class="mb-12 font-overpass text-lg leading-relaxed sm:text-xl md:text-2xl"
+          class="mb-10 font-overpass text-lg leading-relaxed text-gray-600 sm:text-xl md:text-2xl"
         >
           Si quieres apoyar a los participantes en su camino para resolver los
-          desafíos del NASA Space Apps Challenge Encarnación 2025, únete como
+          desafíos del NASA Space Apps Challenge Encarnación 2026, únete como
           mentor. Buscamos profesionales dispuestos a ayudar a los participantes
           en las áreas de desarrollo de software, diseño, pitching, marketing,
           uso de datos abiertos, inteligencia artificial y más. Únete y guía a
@@ -42,10 +44,10 @@ import mentores from "/public/images/mentors.jpg";
 
         <div class="flex justify-center lg:justify-start">
           <a
-            href='https://docs.google.com/forms/d/e/1FAIpQLSfBtguU2h7uFANCn6jaUfBoBxHqGkwhppn1oFOykbf9EfE4QA/viewform?usp=header"'
+            href="https://docs.google.com/forms/d/e/1FAIpQLSd356-2bes7XwDDpPHsjyjzX1eVBQ-JrkOja4oh8DO5K2oaiA/viewform?usp=dialog"
             target="_blank"
             rel="noreferrer"
-            class="transform rounded-lg bg-neonYellow px-8 py-4 font-overpassBold text-lg font-bold text-black transition duration-200 hover:bg-[#C7D806] sm:px-10 sm:py-5 sm:text-xl md:text-2xl"
+            class="transform rounded-lg bg-neonYellow px-8 py-4 font-overpassBold text-lg font-bold text-black shadow-lg shadow-neonYellow/40 transition duration-200 hover:bg-[#C7D806] sm:px-10 sm:py-5 sm:text-xl md:text-2xl"
           >
             QUIERO SER MENTOR
           </a>
@@ -53,7 +55,4 @@ import mentores from "/public/images/mentors.jpg";
       </div>
     </div>
   </Container>
-
-  <div class="absolute inset-0 z-0 h-full w-full bg-deepBlue bg-opacity-95">
-  </div>
 </section>

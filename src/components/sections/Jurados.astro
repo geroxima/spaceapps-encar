@@ -10,15 +10,22 @@ import judgesData from "@/data/judges.json";
 
 <section
   id="jurados"
-  class="relative flex flex-col items-center justify-center overflow-hidden bg-deepBlue bg-[url(/code.svg)] bg-cover bg-center px-4 py-20 text-white"
+  class="relative flex scroll-mt-28 flex-col items-center justify-center overflow-hidden border-b border-electricBlue/10 bg-white bg-[url(/fiduciaries.svg)] bg-cover bg-center px-4 py-20"
 >
-  <div class="absolute inset-0 z-0 h-full w-full bg-deepBlue bg-opacity-95">
-  </div>
+  <div
+    class="absolute inset-0 z-0 h-full w-full bg-white bg-opacity-95"
+  ></div>
 
   <Container>
     <div class="z-10 mb-12 text-center">
-      <p class="uppercase text-gray-400">Nuestros Jurados</p>
-      <h2 class="mt-2 text-5xl font-bold">
+      <p
+        class="font-overpassBold text-sm uppercase tracking-[0.2em] text-electricBlue"
+      >
+        Nuestros Jurados
+      </p>
+      <h2
+        class="mt-3 font-firaSansBlack text-3xl uppercase tracking-wide text-deepBlue sm:text-4xl md:text-5xl"
+      >
         Conoce a los expertos que evaluarán los proyectos
       </h2>
     </div>
@@ -37,13 +44,13 @@ import judgesData from "@/data/judges.json";
                       {judge.description}
                     </p>
                     <form method="dialog" class="flex justify-end">
-                      <button class="rounded bg-deepBlue px-4 py-2 text-white transition hover:bg-neonYellow hover:text-black">
+                      <button class="rounded bg-electricBlue px-4 py-2 text-white transition hover:bg-neonYellow hover:text-black">
                         Cerrar
                       </button>
                     </form>
                   </dialog>
 
-                  <div class="relative aspect-square overflow-hidden bg-black shadow-lg">
+                  <div class="relative aspect-square overflow-hidden rounded-2xl bg-white shadow-xl shadow-deepBlue/10 ring-1 ring-electricBlue/10">
                     <img
                       src={judge.image}
                       alt={judge.name}
@@ -60,10 +67,10 @@ import judgesData from "@/data/judges.json";
                     </button>
                   </div>
 
-                  <h2 class="font-firaSansBlack text-xl uppercase">
+                  <h2 class="font-firaSansBlack text-xl uppercase text-deepBlue">
                     {judge.name}
                   </h2>
-                  <h3 class="flex items-center gap-2">
+                  <h3 class="flex items-center gap-2 text-gray-600">
                     {judge.country === "Perú"
                       ? "🇵🇪"
                       : judge.country === "Paraguay"
@@ -80,7 +87,7 @@ import judgesData from "@/data/judges.json";
                           href={judge.urls.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="flex items-center gap-x-2 text-2xl text-white transition-colors hover:cursor-pointer hover:text-neonYellow md:text-xl lg:text-base xl:text-base"
+                          class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
                           <LinkedIn />
                           <span>LinkedIn</span>
@@ -91,7 +98,7 @@ import judgesData from "@/data/judges.json";
                           href={judge.urls.scholar}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="flex items-center gap-x-2 text-2xl text-white transition-colors hover:cursor-pointer hover:text-neonYellow md:text-xl lg:text-base xl:text-base"
+                          class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
                           <Scholar />
                           <span>Google Scholar</span>
@@ -102,7 +109,7 @@ import judgesData from "@/data/judges.json";
                           href={judge.urls.instagram}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="flex items-center gap-x-2 text-2xl text-white transition-colors hover:cursor-pointer hover:text-neonYellow md:text-xl lg:text-base xl:text-base"
+                          class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
                           <Instagram />
                           <span>Instagram</span>
@@ -113,7 +120,7 @@ import judgesData from "@/data/judges.json";
                           href={judge.urls.facebook}
                           target="_blank"
                           rel="noopener noreferrer"
-                          class="flex items-center gap-x-2 text-2xl text-white transition-colors hover:cursor-pointer hover:text-neonYellow md:text-xl lg:text-base xl:text-base"
+                          class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
                           <Facebook />
                           <span>Facebook</span>

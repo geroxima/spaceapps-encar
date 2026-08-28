@@ -1,0 +1,64 @@
+---
+import { registration } from "@/data/registration";
+
+interface Props {
+  variant?: "hero" | "tutorial" | "header" | "mobile";
+  openLabel?: string;
+  closedLabel?: string;
+}
+
+const {
+  variant = "hero",
+  openLabel = "REGISTRATE AHORA",
+  closedLabel = `REGISTROS ABREN EL ${registration.opensOn}`,
+} = Astro.props;
+
+const variantClasses: Record<
+  NonNullable<Props["variant"]>,
+  { open: string; closed: string }
+> = {
+  hero: {
+    open: "flex w-full items-center justify-center gap-3 whitespace-nowrap rounded-xl bg-neonYellow px-8 py-4 font-overpassBold text-base font-bold text-black shadow-lg shadow-neonYellow/40 transition-all duration-200 hover:scale-105 hover:bg-[#C7D806] sm:w-auto sm:px-10 sm:text-lg",
+    closed:
+      "flex w-full cursor-not-allowed items-center justify-center gap-3 whitespace-nowrap rounded-xl bg-neonYellow px-8 py-4 font-overpassBold text-base font-bold text-black opacity-60 sm:w-auto sm:px-10 sm:text-lg",
+  },
+  tutorial: {
+    open: "mx-auto my-auto flex w-fit max-w-[90vw] items-center gap-3 whitespace-nowrap rounded-lg bg-neonYellow px-6 py-4 text-base font-bold text-black transition-all duration-200 hover:scale-105 hover:bg-[#C7D806] sm:max-w-none sm:px-8 sm:py-5 sm:text-lg lg:text-xl",
+    closed:
+      "mx-auto my-auto flex w-fit max-w-[90vw] cursor-not-allowed items-center gap-3 whitespace-nowrap rounded-lg bg-neonYellow px-6 py-4 text-base font-bold text-black opacity-60 sm:max-w-none sm:px-8 sm:py-5 sm:text-lg lg:text-xl",
+  },
+  header: {
+    open: "ml-4 whitespace-nowrap rounded-lg bg-neonYellow px-4 py-2 text-sm font-bold text-black shadow-md shadow-neonYellow/30 transition-all duration-200 hover:scale-105 hover:bg-[#C7D806]",
+    closed:
+      "ml-4 cursor-not-allowed whitespace-nowrap rounded-lg bg-neonYellow px-4 py-2 text-sm font-bold text-black opacity-60",
+  },
+  mobile: {
+    open: "mt-4 w-full rounded-lg bg-neonYellow px-6 py-3 text-center text-xl font-bold uppercase tracking-wider text-black transition-all duration-200 hover:bg-[#C7D806]",
+    closed:
+      "mt-4 w-full cursor-not-allowed rounded-lg bg-neonYellow px-6 py-3 text-center text-xl font-bold uppercase tracking-wider text-black opacity-60",
+  },
+};
+
+const classes = variantClasses[variant];
+const style = registration.isOpen ? classes.open : classes.closed;
+const label = registration.isOpen ? openLabel : closedLabel;
+---
+
+{
+  registration.isOpen ? (
+    <a
+      href={registration.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={style}
+    >
+      <slot />
+      <span>{label}</span>
+    </a>
+  ) : (
+    <button type="button" disabled aria-disabled="true" class={style}>
+      <slot />
+      <span>{label}</span>
+    </button>
+  )
+}

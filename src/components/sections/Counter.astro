@@ -3,56 +3,63 @@
 ---
 
 <section
-  class="relative bottom-0 left-0 z-[100] m-0 flex h-[40vh] items-center justify-center overflow-hidden bg-gradient-to-br from-[#0042A6] via-[#043186] to-[#07173F]"
+  class="relative flex h-auto min-h-[40vh] items-center justify-center overflow-hidden border-y border-electricBlue/10 bg-gradient-to-b from-white via-blueYonder/5 to-electricBlue/10"
 >
   <div
-    class="pointer-events-none absolute left-0 top-0 z-[-1] h-full w-full bg-[repeating-radial-gradient(circle_at_center,_#07173F_0px,_transparent_1px,_transparent_80px,_transparent_10px)]"
+    class="pointer-events-none absolute left-0 top-0 h-full w-full bg-[repeating-radial-gradient(circle_at_center,_rgba(0,66,166,0.06)_0px,_transparent_1px,_transparent_60px,_transparent_10px)]"
+    aria-hidden="true"
   >
   </div>
 
-  <div id="countdown-container" class="flex w-full flex-col items-center">
+  <div id="countdown-container" class="flex w-full flex-col items-center px-4">
     <div
-      class="mb-4 font-firaSansBlack text-lg uppercase tracking-wider text-white sm:text-xl xl:text-2xl"
+      class="mb-6 flex items-center gap-3 font-firaSansBlack text-lg uppercase tracking-wider text-deepBlue sm:text-xl xl:text-2xl"
     >
-      Faltan:
+      <span class="h-px w-10 bg-electricBlue/20 sm:w-16"></span>
+      Faltan
+      <span class="h-px w-10 bg-electricBlue/20 sm:w-16"></span>
     </div>
 
     <div
       id="timer"
-      class="flex items-center justify-center gap-8 p-8 px-4 text-center font-firaSansBlack text-base text-white sm:px-8 sm:text-lg md:text-xl xl:text-2xl"
+      class="flex items-center justify-center gap-8 p-8 px-4 text-center font-firaSansBlack text-base text-deepBlue sm:px-8 sm:text-lg md:text-xl xl:text-2xl"
     >
       <div class="flex flex-col items-center">
-        <number-flow id="days" class="text-xl sm:text-2xl md:text-3xl"
-        ></number-flow>
+        <number-flow
+          id="days"
+          class="text-4xl text-neonBlue sm:text-5xl md:text-6xl"></number-flow>
         <div
-          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+          class="mt-2 text-xs uppercase tracking-wider text-gray-500 sm:text-sm"
         >
           días
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <number-flow id="hours" class="text-xl sm:text-2xl md:text-3xl"
-        ></number-flow>
+        <number-flow
+          id="hours"
+          class="text-4xl text-neonBlue sm:text-5xl md:text-6xl"></number-flow>
         <div
-          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+          class="mt-2 text-xs uppercase tracking-wider text-gray-500 sm:text-sm"
         >
           horas
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <number-flow id="minutes" class="text-xl sm:text-2xl md:text-3xl"
-        ></number-flow>
+        <number-flow
+          id="minutes"
+          class="text-4xl text-neonBlue sm:text-5xl md:text-6xl"></number-flow>
         <div
-          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+          class="mt-2 text-xs uppercase tracking-wider text-gray-500 sm:text-sm"
         >
           minutos
         </div>
       </div>
       <div class="flex flex-col items-center">
-        <number-flow id="seconds" class="text-xl sm:text-2xl md:text-3xl"
-        ></number-flow>
+        <number-flow
+          id="seconds"
+          class="text-4xl text-neonBlue sm:text-5xl md:text-6xl"></number-flow>
         <div
-          class="mt-2 text-xs uppercase tracking-wider text-white sm:text-base"
+          class="mt-2 text-xs uppercase tracking-wider text-gray-500 sm:text-sm"
         >
           segundos
         </div>
@@ -79,7 +86,7 @@
     const flowM = document.getElementById("minutes");
     const flowS = document.getElementById("seconds");
 
-    const target = new Date("2025-10-04T00:00:00");
+    const target = new Date("2026-11-14T00:00:00");
     const container = document.getElementById("countdown-container");
     const timer = document.getElementById("timer");
 
@@ -103,7 +110,7 @@
           const eventHappening = document.createElement("div");
           eventHappening.id = "event-now"; // optional, to prevent duplicates
           eventHappening.className =
-            "text-center text-white font-firaSansBlack text-2xl sm:text-3xl md:text-4xl p-8";
+            "text-center text-deepBlue font-firaSansBlack text-2xl sm:text-3xl md:text-4xl p-8";
           eventHappening.innerHTML = "¡El evento está sucediendo ahora mismo!";
 
           container.appendChild(eventHappening);
