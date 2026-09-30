@@ -15,13 +15,13 @@ export const links: LinkItem[] = [
     featured: true,
     external: true,
   },
-  {
-    label: "Registro Oficial",
-    url: "https://www.spaceappschallenge.org/2026/local-events/encarnacion/",
-    icon: "verified",
-    external: true,
-    featured: false,
-  },
+  // {
+  //   label: "Registro Oficial",
+  //   url: "https://www.spaceappschallenge.org/2026/local-events/encarnacion/",
+  //   icon: "verified",
+  //   external: true,
+  //   featured: false,
+  // },
   // {
   //   label: "Sé voluntario",
   //   url: "https://docs.google.com/forms/d/e/1FAIpQLSfU7KRuAJHs5taTU83RRN3O1YY6UsGOTkQP1mgnR7FrnbO10w/viewform?usp=dialog",
