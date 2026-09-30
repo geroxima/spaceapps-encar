@@ -1,13 +1,7 @@
 ---
 import Layout from "@/Layout.astro";
 import { links } from "@/data/links";
-import InstagramIcon from "@/components/icons/instagram.astro";
-import WhatsAppsIcon from "@/components/icons/whatsapp.astro";
-import RegisterIcon from "@/components/icons/userplus.astro";
-import MailIcon from "@/components/icons/mail.astro";
-import WebIcon from "@/components/icons/planet.astro";
-import HandHeart from "@/components/icons/hand-heart.astro";
-import Users from "@/components/icons/users.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
@@ -43,13 +37,7 @@ import Users from "@/components/icons/users.astro";
             ]}
           >
             <span class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-white/15 transition-colors duration-200 group-hover:bg-deepBlue/10">
-              {link.icon === "register" && <RegisterIcon />}
-              {link.icon === "website" && <WebIcon />}
-              {link.icon === "instagram" && <InstagramIcon />}
-              {link.icon === "whatsapp" && <WhatsAppsIcon />}
-              {link.icon === "email" && <MailIcon />}
-              {link.icon === "hands" && <HandHeart />}
-              {link.icon === "users" && <Users />}
+              <Icon name={link.icon} size={24} />
             </span>
             <span>{link.label}</span>
           </a>

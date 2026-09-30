@@ -4,9 +4,7 @@ import Container from "@/components/Container.astro";
 import { Image } from "astro:assets";
 import heroLogo from "@/assets/the-next-frontier-logo.webp";
 import heroBg from "@/assets/hero-bg.webp";
-import Rocket from "@/components/icons/rocket.astro";
-import Calendar from "@/components/icons/calendar.astro";
-import Trophy from "../icons/trophy.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
@@ -42,7 +40,11 @@ import Trophy from "../icons/trophy.astro";
       <div
         class="flex items-start justify-center gap-x-2 text-white/90 lg:justify-start"
       >
-        <Calendar class="mt-0.5 shrink-0 xl:mt-1 xl:size-7" />
+        <Icon
+          name="calendar"
+          size={24}
+          class="mt-0.5 shrink-0 xl:mt-1 xl:size-7"
+        />
         <span
           class="my-auto text-center text-sm font-bold sm:text-left sm:text-lg xl:text-2xl"
         >
@@ -62,14 +64,14 @@ import Trophy from "../icons/trophy.astro";
         class="flex flex-col items-center gap-4 pt-3 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-start lg:gap-4 xl:gap-5"
       >
         <RegisterButton variant="hero">
-          <Rocket class="h-5 w-5 sm:h-6 sm:w-6" />
+          <Icon name="rocket" size={24} />
         </RegisterButton>
         <a
           href="#ganadores"
           class="flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl border-2 border-white/40 px-8 py-4 font-overpassBold text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-white hover:text-deepBlue sm:w-auto sm:px-8 sm:text-lg"
         >
           <span>VER GANADORES 2025</span>
-          <Trophy class="size-5" />
+          <Icon name="trophy" />
         </a>
       </div>
     </div>

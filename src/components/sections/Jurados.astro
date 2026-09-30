@@ -1,20 +1,14 @@
 ---
 import Container from "@/components/Container.astro";
-import Instagram from "@/components/icons/instagram.astro";
-import Facebook from "@/components/icons/facebook.astro";
-import LinkedIn from "@/components/icons/linkedin.astro";
-import Scholar from "@/components/icons/graduation.astro";
-import Plus from "@/components/icons/plus.astro";
 import judgesData from "@/data/judges.json";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
   id="jurados"
   class="relative flex scroll-mt-28 flex-col items-center justify-center overflow-hidden border-b border-electricBlue/10 bg-white bg-[url(/fiduciaries.svg)] bg-cover bg-center px-4 py-20"
 >
-  <div
-    class="absolute inset-0 z-0 h-full w-full bg-white bg-opacity-95"
-  ></div>
+  <div class="absolute inset-0 z-0 h-full w-full bg-white bg-opacity-95"></div>
 
   <Container>
     <div class="z-10 mb-12 text-center">
@@ -63,7 +57,7 @@ import judgesData from "@/data/judges.json";
                       title="Aprender más"
                       type="button"
                     >
-                      <Plus />
+                      <Icon name="plus" />{" "}
                     </button>
                   </div>
 
@@ -89,7 +83,7 @@ import judgesData from "@/data/judges.json";
                           rel="noopener noreferrer"
                           class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
-                          <LinkedIn />
+                          <Icon name="linkedin" />
                           <span>LinkedIn</span>
                         </a>
                       )}
@@ -100,7 +94,7 @@ import judgesData from "@/data/judges.json";
                           rel="noopener noreferrer"
                           class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
-                          <Scholar />
+                          <Icon name="graduation" />
                           <span>Google Scholar</span>
                         </a>
                       )}
@@ -111,7 +105,7 @@ import judgesData from "@/data/judges.json";
                           rel="noopener noreferrer"
                           class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
-                          <Instagram />
+                          <Icon name="instagram" />
                           <span>Instagram</span>
                         </a>
                       )}
@@ -122,7 +116,7 @@ import judgesData from "@/data/judges.json";
                           rel="noopener noreferrer"
                           class="flex items-center gap-x-2 text-2xl text-electricBlue transition-colors hover:cursor-pointer hover:text-neonBlue md:text-xl lg:text-base xl:text-base"
                         >
-                          <Facebook />
+                          <Icon name="facebook" />
                           <span>Facebook</span>
                         </a>
                       )}

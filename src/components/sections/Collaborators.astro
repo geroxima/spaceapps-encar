@@ -1,20 +1,15 @@
 ---
-import SponsorGalaxia from "@/components/icons/galaxy.astro";
-import SponsorSistemaSolar from "@/components/icons/meteor.astro";
-import SponsorPlaneta from "@/components/icons/planet.astro";
-import SponsorSatelite from "@/components/icons/satellite.astro";
-import SponsorApoyan from "@/components/icons/rocket.astro";
 import sponsorsData from "@/data/collaborators.json";
-import ArrowUpRight from "@/components/icons/arrow-up-right.astro";
 import Container from "@/components/Container.astro";
 import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
 
-const icons: Record<string, any> = {
-  galaxia: SponsorGalaxia,
-  "sistema-solar": SponsorSistemaSolar,
-  planeta: SponsorPlaneta,
-  satelite: SponsorSatelite,
-  apoyan: SponsorApoyan,
+const icons: Record<string, string> = {
+  galaxia: "galaxy",
+  "sistema-solar": "meteor",
+  planeta: "planet",
+  satelite: "satellite",
+  apoyan: "rocket",
 };
 
 const classes: Record<string, string> = {
@@ -46,7 +41,7 @@ const classes: Record<string, string> = {
           class="flex transform items-center gap-x-2 whitespace-nowrap rounded-lg bg-neonYellow px-8 py-4 font-overpassBold text-lg font-bold text-black transition duration-200 hover:scale-105 hover:bg-[#C7D806]"
         >
           <span>QUIERO SER COLABORADOR</span>
-          <ArrowUpRight />
+          <Icon name="arrow-up-right" />
         </a>
       </div>
     </div>
@@ -79,12 +74,9 @@ const classes: Record<string, string> = {
                           style={{ color: sponsor.color }}
                         >
                           <span>{sponsor.tier}</span>
-                          {(() => {
-                            const IconComponent = icons[sponsor.icon];
-                            return IconComponent ? (
-                              <IconComponent className="size-4" />
-                            ) : null;
-                          })()}
+                          {icons[sponsor.icon] && (
+                            <Icon name={icons[sponsor.icon]} class="size-4" />
+                          )}
                         </div>
                       </div>
                     </div>

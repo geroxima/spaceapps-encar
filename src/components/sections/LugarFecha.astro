@@ -1,7 +1,6 @@
 ---
-import Calendar from "@/components/icons/calendar.astro";
 import Container from "@/components/Container.astro";
-import PinLocation from "@/components/icons/pin.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <section
@@ -41,7 +40,7 @@ import PinLocation from "@/components/icons/pin.astro";
           <span
             class="flex size-12 flex-shrink-0 items-center justify-center rounded-2xl bg-neonYellow/15 text-neonYellow"
           >
-            <Calendar class="size-6" />
+            <Icon name="calendar" size={24} />
           </span>
           <div>
             <h3
@@ -60,7 +59,7 @@ import PinLocation from "@/components/icons/pin.astro";
           href="/NASA-Space-Apps-Challenge-Encarnacion-2026.ics"
           download="NASA Space Apps Challenge Encarnación 2026"
           class="flex items-center gap-x-2 font-overpassBold text-base font-bold text-neonYellow underline md:text-lg"
-          ><span>GUARDAR EN CALENDARIO</span><Calendar class="size-4" /></a
+          ><span>GUARDAR EN CALENDARIO</span><Icon name="calendar" /></a
         >
       </div>
 
@@ -71,7 +70,7 @@ import PinLocation from "@/components/icons/pin.astro";
           <span
             class="flex size-12 flex-shrink-0 items-center justify-center rounded-2xl bg-neonYellow/15 text-neonYellow"
           >
-            <PinLocation class="size-6" />
+            <Icon name="pin" size={24} />
           </span>
           <div>
             <h3
@@ -94,8 +93,9 @@ import PinLocation from "@/components/icons/pin.astro";
           target="_blank"
           rel="noopener noreferrer"
           class="flex items-center gap-x-2 font-overpassBold text-base font-bold text-neonYellow underline md:text-lg"
-          ><span>VER EN EL MAPA</span><PinLocation class="size-4" /></a
-        >
+          ><span>VER EN EL MAPA</span>
+          <Icon name="pin" />
+        </a>
       </div>
     </div>
   </Container>
