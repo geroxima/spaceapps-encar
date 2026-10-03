@@ -15,6 +15,13 @@ export const links: LinkItem[] = [
     featured: true,
     external: true,
   },
+  {
+    label: "Los 14 Desafíos",
+    url: "/desafios",
+    icon: "spaceapps",
+    featured: false,
+    external: false,
+  },
   // {
   //   label: "Registro Oficial",
   //   url: "https://www.spaceappschallenge.org/2026/local-events/encarnacion/",

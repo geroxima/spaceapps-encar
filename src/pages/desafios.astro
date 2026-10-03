@@ -1,0 +1,104 @@
+---
+import Container from "@/components/Container.astro";
+import Layout from "@/Layout.astro";
+import { challenges } from "@/data/desafios";
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import type { ImageMetadata } from "astro";
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpg,jpeg,png,webp}",
+  { eager: true },
+);
+
+// Rocket Red and Neon Yellow are accents (text/border only), never backgrounds.
+const difficultyColors: Record<string, string> = {
+  "Principiante / Jóvenes": "border-blueYonder text-blueYonder",
+  Intermedio: "border-neonYellow text-neonYellow",
+  Avanzado: "border-rocketRed text-rocketRed",
+};
+const defaultDifficultyColor = "border-white text-white";
+---
+
+<Layout>
+  <section class="bg-deepBlue py-16">
+    <Container>
+      <header class="px-4">
+        <h1
+          class="font-firaSansBlack text-4xl font-black uppercase tracking-[0.05em] text-white md:text-6xl"
+        >
+          DESAFIOS DE ESTE AÑO
+        </h1>
+        <p
+          class="mt-4 font-overpassBold text-base uppercase tracking-wider text-white md:text-xl"
+        >
+          Explorá los 14 <span class="text-rocketRed">desafíos de la NASA</span>
+        </p>
+      </header>
+
+      <div
+        class="mt-12 grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      >
+        {
+          challenges.map((challenge, i) => (
+            <article class="flex flex-col gap-4 rounded-md border border-electricBlue bg-deepBlue p-5 text-white">
+              <Image
+                src={images[challenge.imageUrl].default}
+                alt={challenge.altdescription}
+                loading={i < 4 ? "eager" : "lazy"}
+                fetchpriority={i < 4 ? "high" : "auto"}
+                widths={[200, 270, 350, 450]}
+                sizes="(min-width: 1280px) 450px, (min-width: 1024px) 350px, (min-width: 640px) 270px, 200px"
+                class="aspect-[4/3] w-full rounded-md object-cover"
+              />
+
+              <div class="flex flex-wrap gap-1.5">
+                {challenge.difficulty.map((level) => (
+                  <span
+                    class={`rounded-full border px-2.5 py-0.5 font-overpassBold text-xs ${
+                      difficultyColors[level] ?? defaultDifficultyColor
+                    }`}
+                  >
+                    {level}
+                  </span>
+                ))}
+              </div>
+
+              <h2 class="font-overpassBold text-base uppercase tracking-wider">
+                {challenge.label}
+              </h2>
+
+              <p class="font-overpass text-sm font-light leading-relaxed">
+                {challenge.description}
+              </p>
+
+              <div class="flex flex-wrap gap-1.5">
+                {challenge.subjects.map((subject) => (
+                  <span class="rounded-full bg-electricBlue px-2.5 py-0.5 font-overpass text-xs text-white">
+                    {subject}
+                  </span>
+                ))}
+              </div>
+
+              {challenge.challengeUrl && (
+                <a
+                  href={challenge.challengeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-auto inline-flex items-center justify-center gap-2 rounded-sm bg-neonYellow px-5 py-3 font-overpassBold text-sm text-deepBlue transition hover:brightness-90"
+                >
+                  Ver desafío
+                  <Icon
+                    name="arrow-up-right"
+                    class="size-5"
+                    aria-hidden="true"
+                  />
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </Container>
+  </section>
+</Layout>
