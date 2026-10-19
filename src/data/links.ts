@@ -8,18 +8,18 @@ export interface LinkItem {
 }
 
 export const links: LinkItem[] = [
-  {
-    label: "Registrate Ahora",
-    url: "https://forms.gle/cGJBWfHpiueMBmN88",
-    icon: "userplus",
-    featured: true,
-    external: true,
-  },
+  // {
+  //   label: "Registrate Ahora",
+  //   url: "https://forms.gle/cGJBWfHpiueMBmN88",
+  //   icon: "userplus",
+  //   featured: true,
+  //   external: true,
+  // },
   {
     label: "Los 14 Desafíos",
     url: "/desafios",
     icon: "spaceapps",
-    featured: false,
+    featured: true,
     external: false,
   },
   // {
